@@ -6,9 +6,9 @@
 
 @c WeeWM documentation (french version)
 @c
-@c Copyright (c) 2003 by FlashCode <flashcode@flashtux.org>
-@c                     , Xahlexx   <xahlexx@tuxisland.org>
-@c                   and Bounga    <bounga@altern.org>
+@c Copyright (c) 2004 by FlashCode <flashcode@flashtux.org>
+@c                       Xahlexx   <xahlexx@weeland.org>
+@c                       Bounga    <bounga@altern.org>
 @c
 @c Permission is granted to copy, distribute and/or modify this document
 @c under the terms of the GNU Free Documentation License, Version 1.2
@@ -29,7 +29,7 @@
 @titlepage
 @title WeeWM - Wee Enhanced Environment
 @subtitle Gestionnaire de fen@^etre rapide et l@'eger pour XFree
-@subtitle version 0.0.2 - 7 juillet 2003
+@subtitle version 0.0.2 - 13 mai 2004
 
 @author FlashCode , Xahlexx et Bounga
 @page
@@ -69,7 +69,7 @@ Vous pouvez contacter les auteurs par e-mail@tie{}:
 @item
 FlashCode: @email{flashcode@@flashtux.org}
 @item
-Xahlexx: @email{xahlexx@@tuxisland.org}
+Xahlexx: @email{xahlexx@@weeland.org}
 @item
 Bounga: @email{bounga@@altern.org}
 @end itemize
@@ -83,7 +83,7 @@ Bounga: @email{bounga@@altern.org}
 * Introduction:: Qu'est-ce que WeeWM ?
 * Installation:: Installation de WeeWM
 * Configuration:: Configuration de WeeWM
-* D@'ebuggage:: Comment aider @`a trouver et corriger les bugs ?
+* Debuggage:: Comment aider @`a trouver et corriger les bugs ?
 * Auteurs / Support:: Contacter les auteurs et obtenir de l'aide
 @end menu
 
@@ -371,7 +371,7 @@ Vous pouvez maintenant tenter de lancer WeeWM en tapant@tie{}:@*
 
 @c ****************************** Configuration *******************************
 
-@node Configuration, D@'ebuggage, Installation, Top
+@node Configuration, Debuggage, Installation, Top
 @chapter Configuration
 
 @menu
@@ -736,17 +736,17 @@ exec weewm@*
 
 @c ************************* Débuggage ****************************
 
-@node D@'ebuggage, Auteurs / Support, Configuration, Top
-@chapter D@'ebuggage
+@node Debuggage, Auteurs / Support, Configuration, Top
+@chapter Debuggage
 
 @menu
-* Informations g@'en@'erales::
-* Informations @`a sp@'ecifier::
+* Informations generales::
+* Informations a specifier::
 * Et les core-dumps::
 * Reporter un bug:: 
 @end menu
 
-@node Informations g@'en@'erales, Informations @`a sp@'ecifier, ,D@'ebuggage
+@node Informations generales, Informations a specifier, ,Debuggage
 @section Informations g@'en@'erales
 
 Le d@'ebuggage peut paraître une tâche r@'eserv@'ee aux d@'eveloppeur au
@@ -758,7 +758,7 @@ sont les suivantes :
 documents n'existent malheureusement pas en français @`a notre
 connaissance et ce sont les seuls vraiment bons que nous connaissons.
 
-@node Informations @`a sp@'ecifier, Et les core-dumps,Informations g@'en@'erales, D@'ebuggage
+@node Informations a specifier, Et les core-dumps,Informations generales, Debuggage
 @section Informations @`a sp@'ecifier
 
 Les informations que vous devez absolument nous transmettre lorsque
@@ -769,7 +769,7 @@ vous nous faîtes un rapport de bug sont principalement :
 - Quand cela se produit t il ? Avez vous fait quelque chose ? Pouvez vous le reproduire ?@*
 - Vos r@'eglages. Ils peuvent @^etre trouv@'es dans ~/.weewm/@*
 
-@node Et les core-dumps, Reporter un bug, Informations @`a sp@'ecifier, D@'ebuggage
+@node Et les core-dumps, Reporter un bug, Informations a specifier, Debuggage
 @section Et les core-dumps ?
 
 Si lors de l'utilisation de WeeWM survient un crash et que vous
@@ -824,7 +824,7 @@ instantan@'ees (AIM, ICQ, Jabber) @`a l'un des d@'eveloppeurs. Le probl@`eme
 pourrait @^etre sp@'ecifique @`a votre syst@`eme, et il serait probablement
 inutile aux d@'eveloppeurs d'avoir le fichier core qui est en g@'en@'eral assez volumineux.
 
-@node Reporter un bug, , Et les core-dumps, D@'ebuggage
+@node Reporter un bug, , Et les core-dumps, Debuggage
 @section Reporter un bug
 
 Avant de reporter un bug, v@'erifiez si le probl@`eme est d@'ej@`a connu
@@ -835,7 +835,7 @@ Si vous avez d@'ecouvert un nouveau bug, merci de le soumettre sur cette page@ti
 
 @c **************************** Auteurs / Support *****************************
 
-@node Auteurs / Support, , D@'ebuggage, Top
+@node Auteurs / Support, , Debuggage, Top
 @chapter Auteurs / Support
 
 @menu
@@ -874,9 +874,9 @@ Xahlexx:
 
 @itemize @minus
 @item
-@i{e-mail:} @email{xahlexx@@tuxisland.org, xahlexx AT tuxisland DOT org}
+@i{e-mail:} @email{xahlexx@@weeland.org, xahlexx AT weeland DOT org}
 @item
-@i{web:} @uref{http://www.tuxisland.org}
+@i{web:} @uref{http://www.weeland.org}
 @item
 @i{irc:} serveur: irc.freenode.net, canal: #weewm
 @end itemize
@@ -905,6 +905,8 @@ Bounga:
 Aide via IRC :@*
 - serveur: @b{irc.freenode.net}@*
 - canal: @b{#weewm}@*
+
+Forum WeeWM : @uref{http://forums.flashtux.org}@*
 
 Aide via la liste de diffusion :
 Vous pouvez souscrire et utiliser la liste de diffusion des utilisateurs pour

@@ -6,9 +6,9 @@
 
 @c WeeWM documentation (english version)
 @c
-@c Copyright (c) 2003 by FlashCode <flashcode@flashtux.org>
-@c                     , Xahlexx <xahlexx@tuxisland.org>
-@c                   and Bounga <bounga@altern.org>
+@c Copyright (c) 2004 by FlashCode <flashcode@flashtux.org>
+@c                       Xahlexx <xahlexx@weeland.org>
+@c                       Bounga <bounga@altern.org>
 @c
 @c Permission is granted to copy, distribute and/or modify this document
 @c under the terms of the GNU Free Documentation License, Version 1.2
@@ -27,7 +27,7 @@
 @titlepage
 @title WeeWM - Wee Enhanced Environment
 @subtitle Fast and ultra light window manager for XFree
-@subtitle version 0.0.2 - July, 07 2003
+@subtitle version 0.0.2 - May, 13 2004
 
 @author FlashCode, Xahlexx and Bounga
 @page
@@ -67,7 +67,7 @@ You may contact the authors by e-mail:
 @item
 FlashCode: @email{flashcode@@flashtux.org}
 @item
-Xahlexx: @email{xahlexx@@tuxisland.org}
+Xahlexx: @email{xahlexx@@weeland.org}
 @item
 Bounga: @email{bounga@@altern.org}
 @end itemize
@@ -841,9 +841,9 @@ Xahlexx:
 
 @itemize @minus
 @item
-@i{e-mail:} @email{xahlexx@@tuxisland.org, xahlexx AT tuxisland DOT org}
+@i{e-mail:} @email{xahlexx@@weeland.org, xahlexx AT weeland DOT org}
 @item
-@i{web:} @uref{http://www.tuxisland.org}
+@i{web:} @uref{http://www.weeland.org}
 @item
 @i{irc:} server: irc.freenode.net, channel: #weewm
 @end itemize
@@ -872,6 +872,8 @@ Bounga:
 Support with IRC:@*
 - server: @b{irc.freenode.net}@*
 - channel: @b{#weewm}@*
+
+WeeWM forum: @uref{http://forums.flashtux.org}@*
 
 Support with mailing list:
 You can subscribe and use the users mailing list for weewm support:@*
