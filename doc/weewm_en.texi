@@ -81,6 +81,7 @@ Bounga: @email{bounga@@altern.org}
 * Introduction:: What is WeeWM ?
 * Installation:: WeeWM installation
 * Configuration:: WeeWM configuration
+* Debugging:: How to help to find a bug and to help to correct it ?
 * Authors / Support:: Contact authors and get support
 @end menu
 
@@ -99,11 +100,11 @@ Bounga: @email{bounga@@altern.org}
 
 This is the WeeWM documentation, a window manager for XFree. It was
 generated from a .texi file (texinfo format) available with the WeeWM
-sources and in all the package availables. We are using this format to
+sources and in all the package available. We are using this format to
 make this documentation easily adaptable to the various output formats.
 
-For the moment, Nicolas ``Bounga'' C. is the maintener of this
-documentation. You can contact him at this adress:
+For the moment, Nicolas ``Bounga'' C. is the maintainer of this
+documentation. You can contact him at this address:
 @email{bounga@@altern.org}. So feel free to contact him for all
 the question in touch with the WeeWM documentation. You can, as well,
 try to get in touch with him on @b{irc.freenode.net}, @b{#weewm}
@@ -112,9 +113,9 @@ version of this documentation.
 
 @i{Contributions / suggestions:}
 Obviously, we accept the suggestions about the documentations if this
-one is well writed. Particulary about the subjects that are not
-handled here. As weel, traductions are welcome. For example, we need
-the most common languages (italian, spanish, german, etc). If you have
+one is well write. Particularly about the subjects that are not
+handled here. As well, translations are welcome. For example, we need
+the most common languages (Italian, Spanish, German, etc). If you have
 any question on the way to help or if you have documentation that you
 want to give to us, you just have to send an email to the address given
 before.
@@ -134,7 +135,7 @@ and a lot more...
 
 @i{Done:}
 @itemize @bullet
-@item ligh windows decorations
+@item light windows decorations
 @item smart windows placement
 @item up to 256 virtual desktops
 @item all can be done with the keyboard
@@ -323,18 +324,18 @@ Issue this command as root user:@*
 
 Now that the installation has been successful, you have to start WeeWM.
 
-There is generally two ways to start X (so WeeWM). The traditionnal
+There is generally two ways to start X (so WeeWM). The traditional
 way is to use the startx command. The other way is to use a graphical
 login display (as gdm, xdm or kdm).
 
-If X is started with the traditionnal way (vith startx), the important
+If X is started with the traditional way (with startx), the important
 file is named .xinitrc and is located in your home directory. If you
-start X vith a graphical login display, the file is .Xsession and is
+start X with a graphical login display, the file is .Xsession and is
 located in your home directory too.
 
 The following step is to find the WeeWM binary. For most of the users,
 it's located in /usr/bin/weewm. Now, you have to edit (or create) the
-file mentionned before. You just have to add this line:@*
+file mentioned before. You just have to add this line:@*
 @kbd{exec /usr/bin/weewm}
 
 Edit the path @i{/usr/bin/weewm} to put the good path of WeeWM on your
@@ -353,7 +354,7 @@ You can now start WeeWM by doing:@*
 
 @c ****************************** Configuration *******************************
 
-@node Configuration, Authors / Support, Installation, Top
+@node Configuration, Debugging, Installation, Top
 @chapter Configuration
 
 @menu
@@ -432,7 +433,7 @@ dock position (1=top, 2=left, 3=right, 4=bottom)@*
 min: 1, max: 4, default: 3
 
 @item dock.align
-dock alignment (0=top/left, 1=centered, 2=bottom/right)@*
+dock alignment (0=top/left, 1=centred, 2=bottom/right)@*
 min: 0, max: 2, default: 0
 
 @end table
@@ -545,13 +546,13 @@ send window to previous desktop
 send window to next desktop
 
 @item win_max_horizontal
-maximize window horizontally
+maximise window horizontally
 
 @item win_max_vertical
-maximize window vertically
+maximise window vertically
 
 @item win_max
-maximize window
+maximise window
 
 @item win_fix
 fix/unfix window
@@ -678,7 +679,7 @@ manager that makes X shutdowns as we can think.
 To understand the following, you need to have some basic knowledges
 about the shell. For example, when you enter a command in a shell, you
 can't do another thing in this shell before that the first command has
-end-up. The scripts (and so .xinitrc or .xsession) has the same behavior.
+end-up. The scripts (and so .xinitrc or .xsession) has the same behaviour.
 
 Obviously, there is a way to launch a command in a shell and to
 immediately regain the hand. This method will allow you to launch
@@ -704,18 +705,112 @@ idesk &@*
 exec weewm@*
 }
 
+@c ************************* Debugging ****************************
+
+@node Debugging, Authors / Support, Configuration, Top
+@chapter Debugging
+
+@menu
+* General informations::
+* Informations to be specified::
+* What about core-dumps::
+* Report a bug:: 
+@end menu
+
+@node General informations, Informations to be specified, ,Debugging
+@section General informations
+
+The debugging process can appear as a reserved task for developer but
+you can easily acquire the basis. Two good addresses to learn to do a
+good bug report are :
+@uref{http://www.mozilla.org/quality/bug-writing-guidelines.html} and
+@uref{http://www.chiark.greenend.org.uk/~sgtatham/bugs.html}.
+
+@node Informations to be specified, What about core-dumps, General informations, Debugging
+@section Informations to be specified
+
+Informations that you must absolutely transmit to us when you write us
+a bug report bug are mainly :
+
+- Your OS / distribution and its version.@*
+- WeeWM version, and if it's a CVS (or development tarball), its date@*
+- When does it happen ? Have you done something particular ? Can you reproduce it ?@*
+- Your settings. It can be found in ~/.weewm/@*
+
+@node What about core-dumps, Report a bug, Informations to be specified, Debugging
+@section What about core-dumps ?
+
+If a crash has happen while you were using WeeWM and that you've got a
+core-dump, you should come on #weewm channel on irc.freenode.net
+server and say to an op that you've got a problem and a core-dump. He
+should asks you some informations.
+
+To get interesting informations using core-dumps, you must have a
+WeeWM version compiled with the appropriate options and that is not
+the case of the release versions that are offered on the website. So,
+you will have to compile WeeWM by yourself. 
+
+@subsection Compiling WeeWM with the debugging options
+
+To compile WeeWM with the debugging capabilities, you will have to
+download the WeeWM code sources. When you will want to launch the
+``@kbd{make}'' command, be sure to had the following  options :
+
+@kbd{$ OPTIONS=-Wall -W -pedantic -pipe -O2 -g3 make}
+
+When the compilation is over, do this in your shell :
+
+@kbd{$ ulimit -c unlimited}
+
+it will enable the creation of core-dumps with unlimited size.
+
+You can now start X and start the debugging. Try to reproduce the action
+that had crashed WeeWM the last time to get the core-dump. Then start
+the debugging :
+
+@kbd{$ gdb weewm core}
+
+Then type this command in gdb :
+
+@kbd{(gdb) where}
+
+A lot of messages should be printed. WeeWM developers will be involved
+by all the messages beginning with a #.
+
+When you've got all of this, you can send an  e-mail describing the
+way to crash WeeWM, the messages that you've just get and your WeeWM
+configuration files available in ~/.weewm/.
+
+Please don't delete your core file and the sources directory of WeeWM
+immediately. The developers should ask you some other details and you
+will probably have to use this files. @b{Don't} send any file to the
+developers without having exposed your problem to them. You can do this
+on the IRC channel, or by IM (AIM, ICQ, Jabber) with one of them. Your
+problem could be specific to your system, so it will probably be
+useless for the developers to have your core file that is, in most
+case, really huge.
+
+@node Report a bug, , What about core-dumps, Debugging
+@section Report a bug
+
+Before reporting a bug, be sure to check if the problem has not been
+already report. To know if it has been report you can look at the BUGS
+file in the last source package or on the CVS.
+
+If you've find a new bug, please submit it to this webpage@tie{}:@*
+@uref{http://savannah.nongnu.org/bugs/?func=addbug&group=weewm}
+
 @c **************************** Authors / Support *****************************
 
-@node Authors / Support, , Configuration, Top
+@node Authors / Support, , Debugging, Top
 @chapter Authors / Support
 
 @menu
 * Authors::
-* Report a bug::
 * Get support::
 @end menu
 
-@node Authors, Report a bug, Authors / Support, Authors / Support
+@node Authors, Get support, Authors / Support, Authors / Support
 @section Authors
 
 WeeWM is written by:@*
@@ -771,16 +866,7 @@ Bounga:
 
 @end itemize
 
-@node Report a bug, Get support, Authors, Authors / Support
-@section Report a bug
-
-Before reporting a bug, check if the problem is known (look at BUGS file
-in latest source package or CVS).
-
-If you've discovered a new bug, please submit it on this page:@*
-@uref{http://savannah.nongnu.org/bugs/?func=addbug&group=weewm}
-
-@node Get support, , Report a bug, Authors / Support
+@node Get support, , Authors, Authors / Support
 @section Get support
 
 Support with IRC:@*
