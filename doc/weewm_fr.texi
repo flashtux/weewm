@@ -17,16 +17,19 @@
 @c A copy of the license is included in the section entitled "GNU
 @c Free Documentation License".
 
+@c pdf : texi2pdf weewm_fr.texi
 @c for html output: makeinfo --html --no-split --number-sections weewm_fr.texi
 
 @c tex
 @c \overfullrule=0pt
 @c end tex
 
+@documentlanguage fr
+
 @titlepage
-@title @image{weewm} - Wee Enhanced Environment
+@title WeeWM - Wee Enhanced Environment
 @subtitle Gestionnaire de fen@^etre rapide et l@'eger pour XFree
-@subtitle version 0.0.2 - 2 juin 2003
+@subtitle version 0.0.2 - 7 juillet 2003
 
 @author FlashCode , Xahlexx et Bounga
 @page
@@ -61,7 +64,7 @@ except that this permission notice may be stated in a translation approved
 by the Foundation.
 @*
 @*
-Vous pouvez contacter les auteurs par e-mail :
+Vous pouvez contacter les auteurs par e-mail@tie{}:
 @itemize @bullet
 @item
 FlashCode: @email{flashcode@@flashtux.org}
@@ -97,7 +100,7 @@ Bounga: @email{bounga@@altern.org}
 @section A propos de cette documentation
 
 Ceci est la documentation de WeeWM, un gestionnaire de fen@^etre pour
-XFree. Elle est cr@'ee @`a partir d'un fichier .texi (format texinfo)
+XFree. Elle est cr@'e@'ee @`a partir d'un fichier .texi (format texinfo)
 disponible avec les sources de WeeWM et dans les paquets
 disponibles. Nous utilisons ce format dans le but de rendre cette
 documentation facilement adaptable @`a diff@'erents formats de sortie.
@@ -151,7 +154,7 @@ et bien d'autres choses encore...
 
 @subsection Options de la ligne de commande
 
-WeeWM accepte les options suivantes sur la ligne de commande :@*@*
+WeeWM accepte les options suivantes sur la ligne de commande@tie{}:@*@*
 @command{weewm} [ -cdfhklmov ] [long-options]
 @table @code
 
@@ -198,7 +201,7 @@ WeeWM, pensez @`a lire la FAQ disponible avec les sources.
 @node Installation, Configuration, Introduction, Top
 @chapter Installation
 @menu
-* Pr@'e-requis::
+* Pre-requis::
 * Installation depuis les sources::
 * Autres paquets::
 * Lancer WeeWM::
@@ -206,7 +209,7 @@ WeeWM, pensez @`a lire la FAQ disponible avec les sources.
 
 De nombreux paquets binaires de WeeWM sont ou seront bient@^ot
 disponibles pour les diff@'erentes distributions les plus courantes. Ces
-paquets vous permettrons une installation simplifi@'ee de
+paquets vous permettront une installation simplifi@'ee de
 WeeWM. Cependant, vous pourriez avoir besoin pour une raison ou pour
 une autre de compiler les sources. Par exemple, la version le plus
 r@'ecente de WeeWM peut ne pas @^etre disponible en paquet binaire. Vous
@@ -217,16 +220,16 @@ Cette partie de la documentation permettra donc aux moins aguerris
 d'entre vous, de pouvoir tout de m@^eme compiler et installer le
 gestionnaire de fen@^etre WeeWM.
 
-@node Pr@'e-requis, Installation depuis les sources, Installation, Installation
+@node Pre-requis, Installation depuis les sources, Installation, Installation
 @section Pr@'e-requis
 
-Vous devez disposer de ces programmes pour faire fonctionner WeeWM sur votre syst@`eme :
+Vous devez disposer de ces programmes pour faire fonctionner WeeWM sur votre syst@`eme@tie{}:
 @itemize @bullet
 @item
 XFree, version 6 ou plus r@'ecente (X11R6)
 @end itemize
 
-@node Installation depuis les sources, Autres paquets, Pr@'e-requis, Installation
+@node Installation depuis les sources, Autres paquets, Pre-requis, Installation
 @section Installation depuis les sources
 
 @subsection Obtenir le code source
@@ -237,7 +240,7 @@ Vous pouvez t@'el@'echarger un paquet avec le code source ou bien r@'ecup@'erer 
 @item
 Installation d'un paquet source @b{(recommand@'e)}
 
-T@'el@'echargez le paquet des sources sur l'un de ces deux sites :
+T@'el@'echargez le paquet des sources sur l'un de ces deux sites@tie{}:
 @itemize @minus
 @item @uref{http://www.weewm.org/download.php}
 @item @uref{http://savannah.nongnu.org/files/?group=weewm}
@@ -249,7 +252,7 @@ R@'ecup@'eration des sources du CVS @b{(utilisateurs avanc@'es seulement)}
 @b{ATTENTION !} Les sources du CVS peuvent @^etre instables et ne pas compiler !
 
 Cr@'eez un r@'epertoire vide ``weewm'' o@`u vous le souhaitez, allez dans ce
-r@'epertoire et tapez ces commandes :
+r@'epertoire et tapez ces commandes@tie{}:
 
 @kbd{cvs -d:pserver:anoncvs@@subversions.gnu.org:/cvsroot/weewm login}@*
 @kbd{cvs -z3 -d:pserver:anoncvs@@subversions.gnu.org:/cvsroot/weewm co weewm}@*
@@ -257,16 +260,16 @@ r@'epertoire et tapez ces commandes :
 
 @subsection Extraction et compilation
 
-Pour extraire l'archive, selon le fichier que vous avez r@'ecup@'er@'e, tapez l'une de ces 2 commandes :@*
+Pour extraire l'archive, selon le fichier que vous avez r@'ecup@'er@'e, tapez l'une de ces 2 commandes@tie{}:@*
 @kbd{tar xvzf weewm-x.y.z.tar.gz}@*
 @kbd{tar xvjf weewm-x.y.z.tar.bz2}@*
 o@`u x.y.z est la version (par exemple 0.1.2)
 
-Allez ensuite dans le r@'epertoire contenant les sources et tapez cette commande :@*
+Allez ensuite dans le r@'epertoire contenant les sources et tapez cette commande@tie{}:@*
 @kbd{make}@*
 Le code est ainsi compil@'e.
 
-Puis, en tant qu'utilisateur root :@*
+Puis, en tant qu'utilisateur root@tie{}:@*
 @kbd{make install}@*
 ce qui installera les fichiers dans les diff@'erents r@'epertoires.
 
@@ -275,29 +278,29 @@ ce qui installera les fichiers dans les diff@'erents r@'epertoires.
 
 @subsection Paquet Debian
 
-Tapez cette commande sous l'utilisateur root :@*
+Tapez cette commande sous l'utilisateur root@tie{}:@*
 @kbd{dpkg -i weewm_x.y.z_i386.deb}@*
 @*
 Vous pouvez @'egalement cr@'eer vous m@^eme votre paquet .deb @`a
 partir des sources. Il vous suffit pour cela, une fois dans le
-r@'epertoire des sources, de taper la commande suivante :@*
+r@'epertoire des sources, de taper la commande suivante@tie{}:@*
 @kbd{debuild -rfakeroot -sd}@*
 un fichier weewm_x.y.z_i386.deb sera alors disponible dans le
 r@'epertoire parent.@*
 @*
 Un d@'ep@^ot pour apt est @'egalement mis @`a votre disposition. Pour
 en profiter, il vous faut ajouter dans votre fichier
-/etc/apt/sources.list la ligne suivante :@*
+/etc/apt/sources.list la ligne suivante@tie{}:@*
 @i{deb http://apt.bounga.ath.cx/ unstable main}@*
 @*
 Vous pourrez ensuite installer WeeWM en tapant (en tant que root) les
-commandes suivantes :@*
+commandes suivantes@tie{}:@*
 @kbd{apt-get update}@*
 @kbd{apt-get install weewm}@*
 @*
 Gr@^ace @`a cette m@'ethode les mises @`a jour s'en trouveront
 fortement simplifi@'ees. En effet, lorsque une nouvelle version sera
-mise @`a disposition un simple :@*
+mise @`a disposition un simple@tie{}:@*
 @kbd{apt-get update}@*
 @kbd{apt-get upgrade}@*
 vous permettra de passer @`a la nouvelle version.
@@ -305,9 +308,7 @@ vous permettra de passer @`a la nouvelle version.
 
 @subsection Paquet Mandrake/Redhat
 
-@b{*** Paquet en construction ! ***}@*
-@*
-Tapez cette commande sous l'utilisateur root :@*
+Tapez cette commande sous l'utilisateur root@tie{}:@*
 @kbd{rpm -i weewm_x.y.z-i386.rpm}
 @*
 
@@ -347,7 +348,7 @@ votre r@'epertoire personnel.
 La prochaine @'etape est de trouver l'ex@'ecutable pour WeeWM. Pour la
 plupart des personnes, il est situ@'e dans /usr/bin/weewm. D@'esormais
 vous devez @'editer (ou cr@'eer) le fichier mentionn@'e ci-dessus. Ajoutez
-seulement la ligne suivante au bas de ce fichier :@*
+seulement la ligne suivante au bas de ce fichier@tie{}:@*
 @kbd{exec /usr/bin/weewm}
 
 Modifiez le @i{/usr/bin/weewm} pour le lieu o@`u est votre ex@'ecutable
@@ -358,12 +359,12 @@ favori.
 
 Si vous lancez XFree @`a l'aide de la commande @kbd{startx}, il vous
 faut taper la commande suivante, pour rendre @'executable votre fichier
-fra@^ichement @'edit@'e :@*
+fra@^ichement @'edit@'e@tie{}:@*
 @kbd{chmod 700 ~/.xinitrc}
 
 Dans le cas d'un login graphique cette manipulation n'est pas n@'ecessaire.
 
-Vous pouvez maintenant tenter de lancer WeeWM en tapant :@*
+Vous pouvez maintenant tenter de lancer WeeWM en tapant@tie{}:@*
 @kbd{startx}
 
 
@@ -373,12 +374,12 @@ Vous pouvez maintenant tenter de lancer WeeWM en tapant :@*
 @chapter Configuration
 
 @menu
-* Options g@'en@'erales::
+* Options generales::
 * Configuration des touches::
-* Fond d'@'ecrans::
+* Fond d ecrans::
 @end menu
 
-@node Options g@'en@'erales, Configuration des touches, Configuration, Configuration
+@node Options generales, Configuration des touches, Configuration, Configuration
 @section Options g@'en@'erales
 
 Les options g@'en@'erales sont stock@'ees dans le fichier config.rc
@@ -477,10 +478,10 @@ dock.align           0
 }
 
 
-@node Configuration des touches, Fond d'@'ecrans, Options g@'en@'erales, Configuration
+@node Configuration des touches, Fond d ecrans, Options generales, Configuration
 @section Configuration des touches
 
-La configuration des touches est stock@'es dans le fichier keys.rc
+La configuration des touches est stock@'ee dans le fichier keys.rc
 (par d@'efaut: $HOME/.weewm/keys.rc). Ce fichier va vous permettre de
 choisir quelle combinaison de touches lancera telle ou telle commande.
 
@@ -497,7 +498,7 @@ Les modificateurs sont :@*
 
 
 Voici la liste des commandes internes de WeeWM pour les associations
-de touches : 
+de touches@tie{}: 
 
 @table @code
 
@@ -618,7 +619,7 @@ Mod4            Return  run     aterm   0   7913    xterm@*
 Mod4            c       run1    xclock  1   0       xclock@*
 }
 
-Dans cette exemple, on a :@*
+Dans cet exemple, on a :@*
 @kbd{Mod1|Control              Left       prev_desktop}@*
 donc utliser les modificateurs Mod1 +
 Control (Mod1|Control) + la touche fl@'eche gauche (Left) effectuera
@@ -631,7 +632,7 @@ Si vous cherchez le nom d'une touche, vous pouvez utilisez @kbd{xev}
 pour le trouver. Par exemple, vous d@'esirez conna@^itre le nom de la
 touche ``fl@'eche droite''. Lancer donc xev, placez vous dans le fen@^etre
 qui apparait et presser la touche ``fl@'eche droite''. Dans votre
-terminal appara@^itra quelque chose ressemblant @`a :
+terminal appara@^itra quelque chose ressemblant @`a@tie{}:
 
 @kbd{
 KeyPress event, serial 24, synthetic NO, window 0xa00001,@*
@@ -644,7 +645,7 @@ La partie qui nous int@'eresse est : @kbd{keycode 102 (keysym
 0xff53, Right)} o@`u l'on peut voir le mot-clef ``Right''. Notre touche
 s'appelle donc ``Right''.
 
-@node Fond d'@'ecrans, , Configuration des touches, Configuration
+@node Fond d ecrans, , Configuration des touches, Configuration
 @section Fond d'@'ecrans
 
 Tout d'abord, il faut savoir que les fond d'@'ecrans ne sont pas
@@ -669,7 +670,7 @@ bureau, il vous suffit de taper @kbd{Esetroot -f votre_fichier.png}.
 
 Pour automatiser le chargement de votre fond d'@'ecran pr@'ef@'er@'e au
 chargement de WeeWM, vous pouvez par exemple (si vous n'utilisez pas
-de gestionnaire de login graphique) ajouter cette commande :
+de gestionnaire de login graphique) ajouter cette commande@tie{}:
 
 @kbd{Esetroot -f /chemin/vers/mon/image.png}
 
@@ -748,7 +749,7 @@ Bounga:
 Avant de reporter un bug, v@'erifiez si le probl@`eme est d@'ej@`a connu
 (en regardant le fichier BUGS dans le dernier paquet source ou le CVS).
 
-Si vous avez d@'ecouvert un nouveau bug, merci de le soumettre sur cette page :@*
+Si vous avez d@'ecouvert un nouveau bug, merci de le soumettre sur cette page@tie{}:@*
 @uref{http://savannah.nongnu.org/bugs/?func=addbug&group=weewm}
 
 @node Obtenir de l aide, , Reporter un bug, Auteurs / Support
@@ -760,7 +761,7 @@ Aide via IRC :@*
 
 Aide via la liste de diffusion :
 Vous pouvez souscrire et utiliser la liste de diffusion des utilisateurs pour
-obtenir de l'aide :@*
+obtenir de l'aide@tie{}:@*
 - pour souscrire : @uref{http://mail.nongnu.org/mailman/listinfo/weewm-support}@*
 - pour envoyer un mail @'a toutes les personnes de la liste : envoyez @`a @email{weewm-support@@nongnu.org}@*
 
