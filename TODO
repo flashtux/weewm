@@ -1,7 +1,7 @@
 WeeWM - Wee Window Manager for XFree
 ====================================
 
-TODO - 2003-07-07
+TODO - 2004-03-04
 
 Legend:
 # done
@@ -11,5 +11,6 @@ Legend:
 
 
 for v0.0.3:
++ "smart" maximize (in free space)
 - hot configuration reading
 - dock size dynamic allocation

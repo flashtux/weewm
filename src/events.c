@@ -1,8 +1,6 @@
 /*
- * Copyright (c) 2003 FlashCode <flashcode@flashtux.org>
- *                    Xahlexx <xahlexx@tuxfamily.org>
- *                    Bounga <bounga@altern.org>
- * See README for Licence detail.
+ * Copyright (c) 2004 by FlashCode <flashcode@flashtux.org>
+ * See README for Licence detail, AUTHORS for developers list.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -52,7 +50,7 @@ void launch_command(char *cmd, char *const argv[], int screen)
     pid_t   pid;
     char    *buf, *display;
 
-    if ( (pid = fork()) > 0 )
+    if ( (pid = fork()) == 0 )
     {
         buf = (char *)malloc(35*sizeof(char));
         display = (char *)malloc(35*sizeof(char));
@@ -60,7 +58,7 @@ void launch_command(char *cmd, char *const argv[], int screen)
         sprintf(buf, "%s.%i", display_name ? display_name : DEFAULT_DISPLAY, screen);
 
         #ifdef DEBUG
-        fprintf(stderr, "\nStarting command '%s', on display %i - %s\n",
+        fprintf(stderr, "WeeWM [debug]: starting command '%s', on display %i - %s\n",
             cmd, screen, buf);
         #endif
         
@@ -80,7 +78,7 @@ void action_key(t_keymap *km, KeySym key, KeySym mask, XKeyEvent *event)
     t_client    *ptr_client;
     
     #ifdef DEBUG
-    fprintf(stderr, "action_key called with key = %d, mask = %d\n", (int)key, (int)mask);
+    fprintf(stderr, "WeeWM [debug]: action_key called with key = %d, mask = %d\n", (int)key, (int)mask);
     #endif
     switch_to_desktop = -1;
     for (ptr_keymap = km; ptr_keymap != NULL; ptr_keymap = ptr_keymap->next)
@@ -958,6 +956,17 @@ void action_maximize(XKeyEvent *event)
     }
     
     client_resize(client, 1);
+}
+
+/*
+ * action_maximize_free_space: maximizes window in free space
+ *                             => looks for bigger free space
+ *                             available on current desktop
+ */
+
+void action_maximize_free_space(XKeyEvent *event)
+{
+    /* TODO: write this function */
 }
 
 /*

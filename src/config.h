@@ -1,8 +1,6 @@
 /*
- * Copyright (c) 2003 FlashCode <flashcode@flashtux.org>
- *                    Xahlexx <xahlexx@tuxfamily.org>
- *                    Bounga <bounga@altern.org>
- * See README for Licence detail.
+ * Copyright (c) 2004 by FlashCode <flashcode@flashtux.org>
+ * See README for Licence detail, AUTHORS for developers list.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

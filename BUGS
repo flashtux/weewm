@@ -1,7 +1,8 @@
 WeeWM - Wee Window Manager for Xfree
 ====================================
 
-WeeWM Bugs, 2003-07-23
+WeeWM Bugs, 2004-03-04
 
 - wrong border with some X applications (too large)
 - bind-keys doesn't work when numlock is activated
+- zombies process when closing windows

@@ -1,8 +1,6 @@
 /*
- * Copyright (c) 2003 FlashCode <flashcode@flashtux.org>
- *                    Xahlexx <xahlexx@tuxfamily.org>
- *                    Bounga <bounga@altern.org>
- * See README for Licence detail.
+ * Copyright (c) 2004 by FlashCode <flashcode@flashtux.org>
+ * See README for Licence detail, AUTHORS for developers list.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,12 +26,13 @@
 
 /* #define DEBUG */
 
-#define VERSION     "0.0.2"
+#define VERSION     "0.0.3-pre1"
 
 #define WEE_LICENCE \
-    "WeeWM " VERSION " (c) Copyright 2003 by FlashCode <flashcode@flashtux.org>\n" \
-    "                                  Xahlexx  <xahlexx@tuxfamily.org>\n" \
-    "                                  Bounga <bounga@altern.org>\n\n" \
+    "WeeWM " VERSION " (c) Copyright 2004\n" \
+    "by FlashCode <flashcode@flashtux.org>\n" \
+    "   Xahlexx  <xahlexx@tuxfamily.org>\n" \
+    "   Bounga <bounga@altern.org>\n\n" \
     "This program is free software; you can redistribute it and/or modify\n" \
     "it under the terms of the GNU General Public License as published by\n" \
     "the Free Software Foundation; either version 2 of the License, or\n" \
@@ -105,9 +104,10 @@
 
 
 #define WEE_USAGE \
-    "WeeWM " VERSION " (c) Copyright 2003 by FlashCode <flashcode@flashtux.org>\n" \
-    "                                  Xahlexx  <xahlexx@tuxfamily.org>\n" \
-    "                                  Bounga <bounga@altern.org>\n\n" \
+    "WeeWM " VERSION " (c) Copyright 2004\n" \
+    "by FlashCode <flashcode@flashtux.org>\n" \
+    "   Xahlexx  <xahlexx@tuxfamily.org>\n" \
+    "   Bounga <bounga@altern.org>\n\n" \
     "  -c, --config        config file to load (default: $HOME/.weewm/config.rc)\n" \
     "  -d, --display       choose X display\n" \
     "  -f, --font          font name\n" \
