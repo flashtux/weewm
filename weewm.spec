@@ -33,12 +33,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files 
 %defattr(-,root,root,0755) 
-%doc AUTHORS BUGS COPYING FAQ INSTALL NEWS README TODO examples/config.rc examples/keys.rc doc/weewm_fr.texi doc/weewm_en.texi
+%doc AUTHORS BUGS COPYING FAQ FAQ.fr INSTALL NEWS README TODO examples/config.rc examples/keys.rc doc/weewm_fr.texi doc/weewm_en.texi
 /usr/share/man/man1/weewm.1*
 /usr/local/bin/weewm
 
 %changelog 
-* ??? ??? ?? 2003 FlashCode <flashcode@flashtux.org> 0.0.2-1
+* Mon Jul 07 2003 FlashCode <flashcode@flashtux.org> 0.0.2-1
 - Released version 0.0.2
 * Tue Mar 18 2003 FlashCode <flashcode@flashtux.org> 0.0.1-1
 - Released version 0.0.1
