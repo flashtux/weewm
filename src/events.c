@@ -984,6 +984,50 @@ void action_maximize (XKeyEvent *event)
 }
 
 /*
+ * smart_max_add_free_win: add new free windows in a free space
+ */
+
+int smart_max_add_free_win (t_free_zone **zones, int x1, int y1, int x2, int y2)
+{
+    t_free_zone *new_free;
+    
+    new_free = (t_free_zone *) malloc (sizeof (t_free_zone));
+    if (new_free)
+    {
+        new_free->x1 = x1;
+        new_free->y1 = y1;
+        new_free->x2 = x2;
+        new_free->y2 = y2;
+        new_free->used = 1;
+        new_free->next = *zones;
+        *zones = new_free;
+        return 1;
+    }
+    return 0;
+}
+
+/*
+ * smart_max_try_zone: try to split free zone
+ *                     return 1 if new zone was created
+ */
+
+int smart_max_try_zone (t_free_zone **free_wins, t_free_zone *free_win,
+                        int x1, int y1, int x2, int y2)
+{
+    if ( (x1 < free_win->x1) || (x1 > free_win->x2)
+        || (x2 < free_win->x1) || (x2 > free_win->x2)
+        || (y1 < free_win->y1) || (y1 > free_win->y2)
+        || (y2 < free_win->y1) || (y2 > free_win->y2) )
+        return 0;
+    #ifdef DEBUG
+    fprintf (stderr, "WeeWM debug: smart_try_zone: "
+             "new zone = (%d,%d) (%d,%d)\n",
+             x1, y1, x2, y2);
+    #endif
+    return smart_max_add_free_win (free_wins, x1, y1, x2, y2);
+}
+
+/*
  * action_smart_maximize: maximizes window in free space
  *                        => looks for bigger free space
  *                        available on current desktop
@@ -991,10 +1035,198 @@ void action_maximize (XKeyEvent *event)
 
 void action_smart_maximize (XKeyEvent *event)
 {
-    t_client *client;
-    int num_clients;
+    t_client *client, *ptr_client;
+    int i, num_clients, new_zone, surface, max_surface;
+    t_zone *windows;
+    t_free_zone *free_win, *ptr_free, *next_free, *ptr_big_free;
     
-    /* TODO: write this function */
+    if (head_client == NULL)
+        return;
+    client = client_search (event->window);
+    if (client == NULL)
+        client = current_client;
+    if (client == NULL)
+        return;
+    
+    if (client->dock_position != NO_DOCK)
+        return;
+    
+    /* if already maximized => reduction */
+    if (client->oldmh && client->oldmw)
+    {
+        client->y = client->oldmy;
+        client->height = client->oldmh;
+        client->oldmh = 0;
+        client->x = client->oldmx;
+        client->width = client->oldmw;
+        client->oldmw = 0;
+        client_resize (client, 1);
+        return;
+    }
+    
+    num_clients = 0;
+    for (ptr_client = head_client; ptr_client;
+         ptr_client = ptr_client->next)
+    {
+        if ( (ptr_client != client) &&
+            (ptr_client->dock_position == NO_DOCK) )
+            num_clients++;
+    }
+    
+    windows = (t_zone *) malloc (num_clients * sizeof (t_zone));
+    
+    i = 0;
+    for (ptr_client = head_client; ptr_client;
+         ptr_client = ptr_client->next)
+    {
+        if (ptr_client != client)
+        {
+	    windows[i].x1 = ptr_client->x - ptr_client->border;
+            windows[i].y1 = ptr_client->y - ptr_client->border;
+            windows[i].x2 = ptr_client->x + ptr_client->width - 1 + ptr_client->border;
+            windows[i].y2 = ptr_client->y + ptr_client->height - 1 + ptr_client->border;
+            i++;
+	}
+    }
+    
+    #ifdef DEBUG
+    fprintf (stderr,
+             "WeeWM debug: smart_maximize: %d windows opened "
+             "(except dock & current win)\n",
+             num_clients);
+    for (i = 0; i < num_clients; i++)
+        fprintf (stderr,
+                 "WeeWM debug: smart_maximize: "
+                 "windows %d: x1=%d y1=%d x2=%d y2=%d\n",
+                 i + 1, windows[i].x1, windows[i].y1, windows[i].x2, windows[i].y2);
+    #endif
+    
+    free_win = (t_free_zone *) malloc (sizeof (t_free_zone));
+    free_win->x1 = get_x_min (client->screen);
+    free_win->y1 = get_y_min (client->screen);
+    free_win->x2 = get_x_max (client->screen);
+    free_win->y2 = get_y_max (client->screen);
+    free_win->used = 1;
+    free_win->next = NULL;
+    
+    /* for each window, look at each free window */
+    for (i = 0; i < num_clients; i++)
+    {
+        #ifdef DEBUG
+        for (ptr_free = free_win; ptr_free; ptr_free = ptr_free->next)
+        {
+            fprintf (stderr,
+                     "WeeWM debug: smart_maximize: free win: "
+                     "(%d,%d) (%d,%d), used:%d\n",
+                     ptr_free->x1, ptr_free->y1, ptr_free->x2, ptr_free->y2,
+                     (int)(ptr_free->used));
+        }
+        #endif
+        for (ptr_free = free_win; ptr_free; ptr_free = ptr_free->next)
+        {
+            /* if free space still mark as used */
+            if (ptr_free->used)
+            {
+                /* if window is bigger (or equal) than free space */
+                if ( (windows[i].x1 <= ptr_free->x1)
+                    && (windows[i].x2 >= ptr_free->x2)
+                    && (windows[i].y1 <= ptr_free->y1)
+                    && (windows[i].y2 >= ptr_free->y2) )
+                {
+                    /* mark free space as non used */
+                    ptr_free->used = 0;
+                    continue;
+                }
+                else
+                {
+                    new_zone = 0;
+                    new_zone = new_zone | smart_max_try_zone (&free_win, ptr_free,
+                        ptr_free->x1, ptr_free->y1, ptr_free->x2, windows[i].y1 - 1);
+                    new_zone = new_zone | smart_max_try_zone (&free_win, ptr_free,
+                        ptr_free->x1, ptr_free->y1, windows[i].x1 - 1, ptr_free->y2);
+                    new_zone = new_zone | smart_max_try_zone (&free_win, ptr_free,
+                        ptr_free->x1, windows[i].y2 + 1, ptr_free->x2, ptr_free->y2);
+                    new_zone = new_zone | smart_max_try_zone (&free_win, ptr_free,
+                        windows[i].x2 + 1, ptr_free->y1, ptr_free->x2, ptr_free->y2);
+                    if (new_zone)
+                        ptr_free->used = 0;
+                }
+            }
+        }
+    }
+    
+    #ifdef DEBUG
+    for (ptr_free = free_win; ptr_free; ptr_free = ptr_free->next)
+    {
+        fprintf (stderr,
+                 "WeeWM debug: smart_maximize: %s free win: "
+                 "(%d,%d) (%d,%d), used:%d\n",
+                 (ptr_free->used) ? "*" : " ",
+                 ptr_free->x1, ptr_free->y1, ptr_free->x2, ptr_free->y2,
+                 (int)(ptr_free->used));
+    }
+    #endif
+    
+    max_surface = -1;
+    ptr_big_free = NULL;
+    for (ptr_free = free_win; ptr_free; ptr_free = ptr_free->next)
+    {
+        if (ptr_free->used)
+        {
+            surface = (ptr_free->x2 - ptr_free->x1 + 1) *
+                      (ptr_free->y2 - ptr_free->y1 + 1);
+            if (surface > max_surface)
+            {
+                max_surface = surface;
+                ptr_big_free = ptr_free;
+            }
+        }
+    }
+    
+    
+    client->oldmy = client->y;
+    client->oldmh = client->height;
+    client->oldmx = client->x;
+    client->oldmw = client->width;
+
+    if (ptr_big_free)
+    {
+        #ifdef DEBUG
+        fprintf (stderr,
+                 "WeeWM debug: smart_maximize: biggest free area: "
+                 "(%d,%d) (%d,%d)\n",
+                 ptr_big_free->x1, ptr_big_free->y1,
+                 ptr_big_free->x2, ptr_big_free->y2);
+        #endif
+        client_recalculate_sweep (client,
+                                  ptr_big_free->x1 + client->border,
+                                  ptr_big_free->y1 + client->border,
+                                  ptr_big_free->x2 - client->border,
+                                  ptr_big_free->y2 - client->border);
+    }
+    else
+    {
+        #ifdef DEBUG
+        fprintf (stderr,
+                 "WeeWM debug: smart_maximize: no area found, maximizing to screen\n");
+        #endif
+        client_recalculate_sweep (client,
+                                  get_x_min (client->screen) + client->border,
+                                  get_y_min (client->screen) + client->border,
+                                  get_x_max (client->screen) - client->border,
+                                  get_y_max (client->screen) - client->border);
+    }
+    
+    client_resize (client, 1);
+    
+    free (windows);
+    ptr_free = free_win;
+    while (ptr_free)
+    {
+        next_free = ptr_free->next;
+        free (ptr_free);
+        ptr_free = next_free;
+    }
 }
 
 /*

@@ -23,6 +23,24 @@
 
 #include <X11/Xlib.h>
 
+/* t_zone and t_free_zone structs: used for smart_maximize action */
+
+typedef struct t_zone t_zone;
+    
+struct t_zone
+{
+    int x1, y1, x2, y2;
+};
+
+typedef struct t_free_zone t_free_zone;
+    
+struct t_free_zone
+{
+    int x1, y1, x2, y2;
+    char used;
+    t_free_zone *next;
+};
+
 extern void handle_key_event (XKeyEvent *);
 extern void handle_button_event (XButtonEvent *);
 extern void handle_configure_request (XConfigureRequestEvent *);
