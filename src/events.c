@@ -747,6 +747,8 @@ void action_previous_desktop(XKeyEvent *event)
             client = current_client;
         switch_desktop(vdesk[screen]-1, screen);
     }
+    else
+        switch_desktop(config_num_desktops-1, screen);
 }
 
 /*
@@ -759,13 +761,15 @@ void action_next_desktop(XKeyEvent *event)
     t_client    *client;
     
     screen = ScreenOfRootWindow(event->root);
-    if (vdesk[screen] < config_num_desktops)
+    if (vdesk[screen] < (config_num_desktops-1))
     {
         client = find_client(event->window);
         if (client == NULL)
             client = current_client;
         switch_desktop(vdesk[screen]+1, screen);
     }
+    else
+        switch_desktop(0, screen);
 }
 
 /*
