@@ -89,20 +89,65 @@ Bounga: @email{bounga@@altern.org}
 @node Introduction, Installation, Top, Top
 @chapter Introduction
 @menu
-* Description::
-* Options de ligne de commande::
+* A propos de cette documentation:: Qui la maintient ? Comment y contribuer ?
+* A propos de WeeWM:: Description, fonctionnalit@'es, options et questions.
 @end menu
 
-@node Description, Options de ligne de commande, Introduction, Introduction
-@section Description
+@node A propos de cette documentation, , , Introduction
+@section A propos de cette documentation
+
+Ceci est la documentation de WeeWM, un gestionnaire de fen@^etres pour
+XFree. Elle est cr@'ee @`a partir d'un fichier .texi (format texinfo)
+disponible avec les sources de WeeWM et dans les paquets
+disponibles. Nous utilisons ce format dans le but de rendre cette
+documentation facilement adaptable @`a diff@'erents formats de sortie.
+
+Actuellement la personne responsable de la documentation est Nicolas
+``Bounga'' C. Vous pouvez le contacter @`a l'adresse suivante
+@email{bounga@@altern.org}. N'h@'esitez donc pas @`a le contacter pour
+toutes les questions relatives @`a la documentation de WeeWM. Vous
+pouvez @'egalement essayer de le joindre sur @b{irc.freenode.net}, canal
+@b{#weewm} (Nick: Bounga). Nicolas s'occupe de la version française et
+anglaise de cette documentation.
+
+@i{Soumissions :}
+Nous acceptons bien @'evidemment les soumissions de documentations si
+celles ci sont bien r@'edig@'ees. En particulier @`a propos des sujets non
+ou trop peu couverts ici. Envoyez simplement un email @`a l'adresse
+donn@'ee pr@'ec@'edemment si vous avez des questions sur la mani@`ere dont
+vous pourriez aider ou si vous avez de la documentation que vous
+voudriez bien ajouter.
+
+@node A propos de WeeWM, , , Introduction
+@section A propos de WeeWM
+
+@subsection Qu'est ce qu'est WeeWM ?
 
 WeeWM est un gestionnaire de fen@^etres rapide et l@'eger pour XFree.@*
 Tout peut @^etre contr@^ol@'e au clavier. Enti@`erement param@'etrable, il
 g@`ere le dock, le placement intelligent des fen@^etres, les bureaux virtuels,
 et bien d'autres choses encore...
 
-@node Options de ligne de commande, , Description, Introduction
-@section Options de ligne de commande
+@subsection Fonctionnalit@'es
+
+@i{R@'ealis@'ees :}
+@itemize @bullet
+@item d@'ecorations de fen@^etres l@'eg@`eres
+@item placement intelligent des fen@^etres
+@item jusqu'@`a 256 bureaux virtuels
+@item contrôle total au clavier
+@item pour une touche, une infinit@'e de commandes associ@'ees
+@item touches configurables
+@item ex@'ecutable tr@`es l@'eger
+@end itemize
+
+@i{En d@'eveloppement :}
+@itemize @bullet
+@item gestion intelligente du dock
+@item relecture @`a chaud de la configuration
+@end itemize
+
+@subsection Options de la ligne de commande
 
 WeeWM accepte les options suivantes sur la ligne de commande :@*@*
 @command{weewm} [ -cdfhklmov ] [long-options]
@@ -139,6 +184,12 @@ Afficher la version de WeeWM et quitter.
 
 @end table
 
+@subsection Poser des questions et trouver du support
+
+Bien que WeeWM soit facile @`a utiliser et configurer, il est possible
+que des questions ou des probl@`emes subsistent. Tout d'abord, avant
+de poser votre question sur les mailing lists ou sur le canal IRC de
+WeeWM, pensez @`a lire la FAQ disponible avec les sources.
 
 @c ******************************* Installation *******************************
 
@@ -200,7 +251,7 @@ Allez dans le r@'epertoire avec les sources et tapez ces commandes :@*
 @kbd{make install} (en utilisateur root)
 
 @node Autres paquets, , Installation depuis les sources, Installation
-@section Autres pacquages
+@section Autres paquets
 
 @subsection Paquet Debian
 

@@ -89,19 +89,66 @@ Bounga: @email{bounga@@altern.org}
 @node Introduction, Installation, Top, Top
 @chapter Introduction
 @menu
-* Description::
-* Command line options::
+* About this documentation:: Who maintain it ? How to contribute ?
+* About WeeWM:: Description, functionalities, options and questions.
 @end menu
 
-@node Description, Command line options, Introduction, Introduction
-@section Description
+@node About this documentation, , , Introduction
+@section About this documentation
 
-WeeWM is a fast and ultra-light window manager for XFree.@*
-Everything can be done with a keyboard. It is customisable, and has
-dock management, smart window placement, virtual desktops, and more.
+This is the WeeWM documentation, a windows manager for XFree. It was
+generated from a .texi file (texinfo format) available with the WeeWM
+sources and in all the package availables. We are using this format to
+make this documentation easily adaptable to the various output formats.
 
-@node Command line options, , Description, Introduction
-@section Command line options
+For the moment, Nicolas ``Bounga'' C. is the maintenair of this
+documentation. You can contact him at this adress :
+@email{bounga@@altern.org}. So don't hesitate to contact him for all
+the question in touch with the WeeWM documentation. You can, as well,
+try to get in touch with him on @b{irc.freenode.net}, @b{#weewm}
+channel (Nick: Bounga). Nicolas maintain the english and french
+version of this documentation.
+
+@i{Contributions / suggestions :}
+Obviously, we accept the suggestions about the documentations if this
+one is well writed. Particulary about the subjects that are not
+handled here. As weel, traductions are welcome. For example, we need
+the most common languages (italian, spanish, deutch, etc). If you have
+any question on the way to help or if you have documentation that you
+want to give to us, you just have to send an email to the adress given
+before.
+
+@node About WeeWM, , , Introduction
+@section About WeeWM
+
+@subsection What is WeeWM ?
+
+WeeWM is a windows manager for XFree that is designed to be very fast
+and light.@*
+All can be done on the keyboard. Fully customisable, it handle the
+dock, the smart windows placement, the virtual desktops,
+and a lot more...
+
+@subsection Functionalities
+
+@i{Done :}
+@itemize @bullet
+@item ligh windows decorations
+@item smart windows placement
+@item up to 256 virtual desktops
+@item all can be done with the keyboard
+@item with one key you've got a lot of associated command
+@item config file for bindings
+@item very light binary
+@end itemize
+
+@i{Under development :}
+@itemize @bullet
+@item smart dock management
+@item hot configuration reading
+@end itemize
+
+@subsection Command line options
 
 WeeWM takes the following options from the command line:@*@*
 @command{weewm} [ -cdfhklmov ] [long-options]
@@ -138,6 +185,12 @@ Display WeeWM version and exit.
 
 @end table
 
+@subsection Ask questions and find help
+
+Even if WeeWM is easy to use and to configure, it is possible that
+some questions or problems subsist. First of all, before coming on the
+mailing lists or on the WeeWM IRC channel to ask your question, think
+of reading the FAQ available with the sources.
 
 @c ******************************* Installation *******************************
 
