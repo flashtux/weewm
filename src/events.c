@@ -52,7 +52,7 @@ void launch_command(char *cmd, char *const argv[], int screen)
     pid_t   pid;
     char    *buf, *display;
 
-    if ( (pid = fork()) == 0 )
+    if ( (pid = fork()) > 0 )
     {
         buf = (char *)malloc(35*sizeof(char));
         display = (char *)malloc(35*sizeof(char));
