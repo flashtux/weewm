@@ -1,0 +1,551 @@
+\input texinfo  @c -*-texinfo-*-
+@c %**start of header
+@setfilename weewm_fr.info
+@settitle WeeWM - Wee Enhanced Environment
+@c %**end of header
+
+@c WeeWM documentation (french version)
+@c
+@c Copyright (c) 2003 by FlashCode <flashcode@flashtux.org>
+@c                     , Xahlexx  <xahlexx@tuxisland.org>
+@c                   and Bounga <bounga@altern.org>
+@c
+@c Permission is granted to copy, distribute and/or modify this document
+@c under the terms of the GNU Free Documentation License, Version 1.2
+@c or any later version published by the Free Software Foundation;
+@c with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+@c A copy of the license is included in the section entitled "GNU
+@c Free Documentation License".
+
+@c for html output: makeinfo --html --no-split --number-sections weewm_fr.texi
+
+@c tex
+@c \overfullrule=0pt
+@c end tex
+
+@titlepage
+@title @image{weewm} - Wee Enhanced Environment
+@subtitle Gestionnaire de fen@^etres rapide et l@'eger pour XFree
+@subtitle version 0.0.2 - 2 juin 2003
+
+@author FlashCode , Xahlexx et Bounga
+@page
+
+Ce manuel documente WeeWM, un gestionnaire de fen@^etres rapide et l@'eger
+pour XFree.
+
+Ce manuel fait partie de WeeWM.@*
+@sp4
+Copyright (C) 1991, 1992, 1993, 1994, 1997 Free Software Foundation, Inc.
+59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+@iftex
+Permission is granted to process this file through TeX and print the
+results, provided the printed document carries copying permission
+notice identical to this one except for the removal of this paragraph
+(this paragraph not being relevant to the printed manual).
+@end iftex
+
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the entire
+resulting derived work is distributed under the terms of a permission
+notice identical to this one.
+
+Permission is granted to copy and distribute translations of this manual
+into another language, under the above conditions for modified versions,
+except that this permission notice may be stated in a translation approved
+by the Foundation.
+@*
+@*
+Vous pouvez contacter les auteurs par e-mail :
+@itemize @bullet
+@item
+FlashCode: @email{flashcode@@flashtux.org}
+@item
+Xahlexx: @email{xahlexx@@tuxisland.org}
+@item
+Bounga: @email{bounga@@altern.org}
+@end itemize
+
+@end titlepage
+
+@contents
+
+@node Top, Introduction, (dir), (dir)
+@menu
+* Introduction:: Qu'est-ce que WeeWM ?
+* Installation:: Installation de WeeWM
+* Configuration:: Configuration de WeeWM
+* Auteurs / Support:: Contacter les auteurs et obtenir de l'aide
+@end menu
+
+
+@c ******************************* Introduction *******************************
+
+@node Introduction, Installation, Top, Top
+@chapter Introduction
+@menu
+* Description::
+* Options de ligne de commande::
+@end menu
+
+@node Description, Options de ligne de commande, Introduction, Introduction
+@section Description
+
+WeeWM est un gestionnaire de fen@^etres rapide et l@'eger pour XFree.@*
+Tout peut @^etre contr@^ol@'e au clavier. Enti@`erement param@'etrable, il
+g@`ere le dock, le placement intelligent des fen@^etres, les bureaux virtuels,
+et bien d'autres choses encore...
+
+@node Options de ligne de commande, , Description, Introduction
+@section Options de ligne de commande
+
+WeeWM accepte les options suivantes sur la ligne de commande :@*@*
+@command{weewm} [ -cdfhklmov ] [long-options]
+@table @code
+
+@item -c, --config
+Choisir un autre fichier de configuration@*
+(par d@'efaut : $HOME/.weewm/config.rc)
+@*
+@item -d, --display
+Choisir un autre <<display>> pour X.
+@*
+@item -f, --font
+Choisir une fonte X (pour les messages, comme le redimensionnement des fen@^etres).
+@*
+@item -h, --help
+Afficher l'aide et quitter.
+@*
+@item -k, --keys
+Choisir un fichier de configuration des touches@*
+(par d@'efaut : $HOME/.weewm/keys.rc)
+@*
+@item -l, --licence
+Afficher la licence WeeWM et quitter.
+@*
+@item -m, --list-commands
+Afficher les commandes de WeeWM (pour keys.rc) et quitter.
+@*
+@item -o, --list-options
+Afficher les options WeeWM (pour config.rc) et quitter.
+@*
+@item -v, --version 
+Afficher la version de WeeWM et quitter.
+
+@end table
+
+
+@c ******************************* Installation *******************************
+
+@node Installation, Configuration, Introduction, Top
+@chapter Installation
+@menu
+* Pr@'e-requis::
+* Installation depuis les sources::
+* Autres paquets::
+@end menu
+
+@node Pr@'e-requis, Installation depuis les sources, Installation, Installation
+@section Pr@'e-requis
+
+Vous devez disposer de ces programmes pour faire fonctionner WeeWM sur votre syst@`eme :
+@itemize @bullet
+@item
+XFree, version 6 ou plus r@'ecente (X11R6)
+@end itemize
+
+@node Installation depuis les sources, Autres paquets, Pr@'e-requis, Installation
+@section Installation depuis les sources
+
+@subsection Obtention du code source
+
+Vous pouvez t@'el@'echarger un paquet avec le code source ou bien r@'ecup@'erer la base CVS.@*
+
+@itemize @bullet
+@item
+Installation d'un paquet source @b{(recommand@'e)}
+
+T@'el@'echargez le paquet des sources sur l'un de ces 2 sites :
+@itemize @minus
+@item @uref{http://www.weewm.org/download.php}
+@item @uref{http://savannah.nongnu.org/files/?group=weewm}
+@end itemize
+
+Selon le fichier que vous avez r@'ecup@'er@'e, tapez l'une de ces 2 commandes :@*
+@kbd{tar xvzf weewm-x.y.z.tar.gz}@*
+@kbd{tar xvjf weewm-x.y.z.tar.bz2}@*
+o@`u x.y.z est la version (par exemple 0.1.2)
+
+@item
+R@'ecup@'eration des sources du CVS @b{(utilisateurs avanc@'es seulement)}
+
+@b{ATTENTION !} Les sources du CVS peuvent @^etre instables et ne pas compiler !
+
+Cr@'eez un r@'epertoire vide ``weewm'' o@`u vous le souhaitez, allez dans ce
+r@'epertoire et tapez ces commandes :
+
+@kbd{cvs -d:pserver:anoncvs@@subversions.gnu.org:/cvsroot/weewm login}@*
+@kbd{cvs -z3 -d:pserver:anoncvs@@subversions.gnu.org:/cvsroot/weewm co weewm}@*
+@end itemize
+
+@subsection Compilation
+
+Allez dans le r@'epertoire avec les sources et tapez ces commandes :@*
+@kbd{make}@*
+@kbd{make install} (en utilisateur root)
+
+@node Autres paquets, , Installation depuis les sources, Installation
+@section Autres pacquages
+
+@subsection Paquet Debian
+
+Tapez cette commande sous l'utilisateur root :@*
+@kbd{dpkg -i weewm_x.y.z_i386.deb}@*
+@*
+Vous pouvez @'egalement cr@'eer vous m@^eme votre paquet .deb @`a
+partir des sources. Il vous suffit pour cela, une fois dans le
+r@'epertoire des sources, de taper la commande suivante :@*
+@kbd{debuild -rfakeroot -sd}@*
+un fichier weewm_x.y.z_i386.deb sera alors disponible dans le
+r@'epertoire parent.@*
+@*
+Un d@'ep@^ot pour apt est @'egalement mis @`a votre disposition. Pour
+en profiter, il vous faut ajouter dans votre fichier
+/etc/apt/sources.list la ligne suivante :@*
+@i{deb http://apt.bounga.ath.cx/ unstable main}@*
+@*
+Vous pourrez ensuite installer WeeWM en tapant (en tant que root) les
+commandes suivantes :@*
+@kbd{apt-get update}@*
+@kbd{apt-get install weewm}@*
+@*
+Gr@^ace @`a cette m@'ethode les mises @`a jour s'en trouveront
+fortement simplifi@'ees. En effet, lorsque une nouvelle version sera
+mise @`a disposition un simple :@*
+@kbd{apt-get update}@*
+@kbd{apt-get upgrade}@*
+vous permettra de passer @`a la nouvelle version.
+@*
+
+@subsection Paquet Mandrake/Redhat
+
+@b{*** Paquet en construction ! ***}@*
+@*
+Tapez cette commande sous l'utilisateur root :@*
+@kbd{rpm -i weewm_x.y.z-i386.rpm}
+@*
+
+@subsection Paquet BSD
+
+@b{*** Non d@'evelopp@'e ! ***}@*
+
+@subsection Paquet Gentoo
+
+@b{*** Non d@'evelopp@'e ! ***}@*
+
+@subsection Paquet Sorcerer
+
+@b{*** Non d@'evelopp@'e ! ***}@*
+
+@subsection Paquet Slackware
+
+@b{*** Non d@'evelopp@'e ! ***}@*
+
+
+@c ****************************** Configuration *******************************
+
+@node Configuration, Auteurs / Support, Installation, Top
+@chapter Configuration
+
+@menu
+* Options g@'en@'erales::
+* Configuration des touches::
+@end menu
+
+@node Options g@'en@'erales, Configuration des touches, Configuration, Configuration
+@section Options g@'en@'erales
+
+Les options g@'en@'erales sont stock@'ees dans le fichier config.rc
+(par d@'efault : $HOME/.weewm/config.rc).@*
+
+D@'etail des options :
+
+@table @code
+
+@item border
+largeur de la bordure (en pixels)@*
+min: 1, max: 3, d@'efaut: 1
+
+@item space
+espace entre la fen@^etre et la bordure (en pixels)@*
+min: 0, max: 5, d@'efaut: 1
+
+@item desktops
+nombre de bureaux@*
+min: 1, max: 256, d@'efaut: 5
+
+@item minwidth
+largeur minimale d'une fen@^etre@*
+min: 1, max: 4096, d@'efaut: 15
+
+@item minheight
+hauteur minimale d'une fen@^etre@*
+min: 1, max: 4096, d@'efaut: 15
+
+@item move_offset
+incr@'ement de d@'eplacement des fen@^etres (en pixels)@*
+min: 1, max: 256, d@'efaut: 16
+
+@item color.border.active
+couleur de la bordure active@*
+d@'efaut: 'green'
+
+@item color.border.inactive
+couleur de la bordure inactive@*
+d@'efaut: 'black'
+
+@item color.sticky
+couleur de la bordure pour les fen@^etres coll@'ees@*
+d@'efaut: 'blue'
+
+@item info.width
+largeur de la fen@^etre d'information - NON DEVELOPPE !@*
+min: 10, max: 4096, d@'efaut: 100
+
+@item info.height
+hauteur de la fen@^etre d'information - NON DEVELOPPE !@*
+min: 10, max: 4096, d@'efaut: 50
+
+@item dock.use
+utilisation du dock (1=oui, 0=pas de dock)@*
+min: 0, max: 1, d@'efaut: 1
+
+@item dock.size
+taille du dock (en pixels)@*
+min: 8, max: 512, d@'efaut: 64
+
+@item dock.position
+position du dock (1=en haut, 2=@`a gauche, 3=@`a droite, 4=en bas)@*
+min: 1, max: 4, d@'efaut: 3
+
+@item dock.align
+alignement du dock (0=haut/gauche, 1=centr@'e, 2=bas/droite)@*
+min: 0, max: 2, d@'efaut: 0
+
+@end table
+
+@node Configuration des touches, , Options g@'en@'erales, Configuration
+@section Configuration des touches
+
+Les configurations des touches sont stock@'ees dans le fichier keys.rc
+(par d@'efaut: $HOME/.weewm/keys.rc).
+
+D@'etail des touches :
+
+Tous les noms de touches peuvent @^etre trouv@'es dans le fichier@*
+/usr/include/X11/keysymdef.h (noms de touches sans le pr@'efixe ``XK_'')
+
+Les modificateurs sont :@*
+- ``Mod1'': touche alt@*
+- ``Mod4'': touche windows@*
+- ``Control'': touche control@*
+- ``Shift'': touche shift@*
+
+
+D@'etail des commandes internes WeeWM pour les associations de touches :
+
+@table @code
+
+@item next_win
+active la fen@^etre suivante
+
+@item prev_win
+active la fen@^etre pr@'ec@'edente
+
+@item pos_top_left
+d@'eplace la fen@^etre dans le coin sup@'erieur gauche
+
+@item pos_top
+d@'eplace la fen@^etre sur le bord sup@'erieur de l'@'ecran
+
+@item pos_top_right
+d@'eplace la fen@^etre dans le coin sup@'erieur droit
+
+@item pos_left
+d@'eplace la fen@^etre sur le bord gauche de l'@'ecran
+
+@item pos_center
+centre la fen@^etre sur l'@'ecran
+
+@item pos_right
+d@'eplace la fen@^etre sur le bord droit de l'@'ecran
+
+@item pos_bottom_left
+d@'eplace la fen@^etre dans le coin inf@'erieur gauche
+
+@item pos_bottom
+d@'eplace la fen@^etre sur le bord inf@'erieur de l'@'ecran
+
+@item pos_bottom_right
+d@'eplace la fen@^etre dans le coin inf@'erieur droit
+
+@item move_win_left
+d@'eplace la fen@^etre horizontalement (-X pixels)
+
+@item move_win_right
+d@'eplace la fen@^etre horizontalement (+X pixels)
+
+@item move_win_up
+d@'eplace la fen@^etre verticalement (-X pixels)
+
+@item move_win_down
+d@'eplace la fen@^etre verticalement (+X pixels)
+
+@item prev_desktop
+affiche le bureau pr@'ec@'edent
+
+@item next_desktop
+affiche le bureau suivant
+
+@item desktop[1-256]
+affiche le bureau num@'ero N
+
+@item send_prev_desktop
+envoie la fen@^etre sur le bureau pr@'ec@'edent
+
+@item send_next_desktop
+envoie la fen@^etre sur le bureau suivant
+
+@item win_max_horizontal
+maximise la fen@^etre horizontalement
+
+@item win_max_vertical
+maximise la fen@^etre verticalement
+
+@item win_max
+maximise la fen@^etre
+
+@item win_fix
+colle/d@'ecolle le fen@^etre
+
+@item win_memo_pos
+m@'emorise la position et la taille de la fen@^etre
+
+@item win_memo_desktop
+m@'emorise le bureau de la fen@^etre
+
+@item win_forget_pos
+oublie la position m@'emoris@'ee de la fen@^etre
+
+@item win_forget_desktop
+oublie le bureau m@'emoris@'e de la fen@^etre
+
+@item win_kill
+ferme la fen@^etre active
+
+@item reconfigure
+recharge la configuration - NON DEVELOPPE !
+
+@item quit
+quitte WeeWM
+
+@end table
+
+
+@c **************************** Auteurs / Support *****************************
+
+@node Auteurs / Support, , Configuration, Top
+@chapter Auteurs / Support
+
+@menu
+* Auteurs::
+* Reporter un bug::
+* Obtenir de l aide::
+@end menu
+
+@node Auteurs, Reporter un bug, Auteurs / Support, Auteurs / Support
+@section Auteurs
+
+WeeWM est @'ecrit par :@*
+
+@itemize @bullet
+@item 
+FlashCode:
+
+@itemize @minus
+@item
+@i{e-mail:} @email{flashcode@@flashtux.org, flashcode AT flashtux DOT org}
+@item
+@i{web:} @uref{http://www.weewm.org}
+@item
+@i{irc:} serveur: irc.freenode.net, canal: #weewm
+@item
+@i{jabber:} flashcode@@jabber.org
+@item
+@i{icq:} 160677660
+@item
+@i{aim:} FlashCode AIM
+@item
+@i{yahoo:} FlashCode_Y
+@end itemize
+
+@item
+Xahlexx:
+
+@itemize @minus
+@item
+@i{e-mail:} @email{xahlexx@@tuxisland.org, xahlexx AT tuxisland DOT org}
+@item
+@i{web:} @uref{http://www.tuxisland.org}
+@item
+@i{irc:} serveur: irc.freenode.net, canal: #weewm
+@end itemize
+
+@item 
+Bounga:
+
+@itemize @minus
+@item
+@i{e-mail:} @email{bounga@@altern.org, bounga AT altern DOT org}
+@item
+@i{web:} @uref{http://bounga.ath.cx}
+@item
+@i{irc:} serveur: irc.freenode.net, canal: #weewm
+@item
+@i{jabber:} Bounga@@jabber.org
+@item
+@i{icq:} 178297842
+@end itemize
+
+@end itemize
+
+@node Reporter un bug, Obtenir de l aide, Auteurs, Auteurs / Support
+@section Reporter un bug
+
+Avant de reporter un bug, v@'erifiez si le probl@`eme est d@'ej@`a connu
+(en regardant le fichier BUGS dans le dernier paquet source ou le CVS).
+
+Si vous avez d@'ecouvert un nouveau bug, merci de le soumettre sur cette page :@*
+@uref{http://savannah.nongnu.org/bugs/?func=addbug&group=weewm}
+
+@node Obtenir de l aide, , Reporter un bug, Auteurs / Support
+@section Obtenir de l'aide
+
+Aide via IRC :@*
+- serveur: @b{irc.freenode.net}@*
+- canal: @b{#weewm}@*
+
+Aide via la liste de diffusion :
+Vous pouvez souscrire et utiliser la liste de diffusion des utilisateurs pour
+obtenir de l'aide :@*
+- pour souscrire : @uref{http://mail.nongnu.org/mailman/listinfo/weewm-support}@*
+- pour envoyer un mail @'a toutes les personnes de la liste : envoyez @`a @email{weewm-support@@nongnu.org}@*
+
+Ou vous pouvez contacter les d@'eveloppeurs, @xref{Auteurs}.
+
+@bye

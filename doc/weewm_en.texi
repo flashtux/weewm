@@ -1,0 +1,544 @@
+\input texinfo  @c -*-texinfo-*-
+@c %**start of header
+@setfilename weewm_en.info
+@settitle WeeWM - Wee Enhanced Environment
+@c %**end of header
+
+@c WeeWM documentation (english version)
+@c
+@c Copyright (c) 2003 by FlashCode <flashcode@flashtux.org>
+@c                     , Xahlexx <xahlexx@tuxisland.org>
+@c                   and Bounga <bounga@altern.org>
+@c
+@c Permission is granted to copy, distribute and/or modify this document
+@c under the terms of the GNU Free Documentation License, Version 1.2
+@c or any later version published by the Free Software Foundation;
+@c with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+@c A copy of the license is included in the section entitled "GNU
+@c Free Documentation License".
+
+@c for html output: makeinfo --html --no-split --number-sections weewm_en.texi
+
+@c tex
+@c \overfullrule=0pt
+@c end tex
+
+@titlepage
+@title @image{weewm} - Wee Enhanced Environment
+@subtitle Fast and ultra light window manager for XFree
+@subtitle version 0.0.2 - June, 02 2003
+
+@author FlashCode, Xahlexx and Bounga
+@page
+
+This manual documents WeeWM, a fast and ultra light window manager
+for XFree.
+
+This manual is part of WeeWM.@*
+@sp4
+Copyright (C) 1991, 1992, 1993, 1994, 1997 Free Software Foundation, Inc.
+59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+@iftex
+Permission is granted to process this file through TeX and print the
+results, provided the printed document carries copying permission
+notice identical to this one except for the removal of this paragraph
+(this paragraph not being relevant to the printed manual).
+@end iftex
+
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the entire
+resulting derived work is distributed under the terms of a permission
+notice identical to this one.
+
+Permission is granted to copy and distribute translations of this manual
+into another language, under the above conditions for modified versions,
+except that this permission notice may be stated in a translation approved
+by the Foundation.
+@*
+@*
+You may contact the authors by e-mail:
+@itemize @bullet
+@item
+FlashCode: @email{flashcode@@flashtux.org}
+@item
+Xahlexx: @email{xahlexx@@tuxisland.org}
+@item
+Bounga: @email{bounga@@altern.org}
+@end itemize
+
+@end titlepage
+
+@contents
+
+@node Top, Introduction, (dir), (dir)
+@menu
+* Introduction:: What is WeeWM ?
+* Installation:: WeeWM installation
+* Configuration:: WeeWM configuration
+* Authors / Support:: Contact authors and get support
+@end menu
+
+
+@c ******************************* Introduction *******************************
+
+@node Introduction, Installation, Top, Top
+@chapter Introduction
+@menu
+* Description::
+* Command line options::
+@end menu
+
+@node Description, Command line options, Introduction, Introduction
+@section Description
+
+WeeWM is a fast and ultra-light window manager for XFree.@*
+Everything can be done with a keyboard. It is customisable, and has
+dock management, smart window placement, virtual desktops, and more.
+
+@node Command line options, , Description, Introduction
+@section Command line options
+
+WeeWM takes the following options from the command line:@*@*
+@command{weewm} [ -cdfhklmov ] [long-options]
+@table @code
+
+@item -c, --config
+Choose alternate config file@*
+(default: $HOME/.weewm/config.rc)
+@*
+@item -d, --display
+Choose X display.
+@*
+@item -f, --font
+Choose X font (for messages, like window size when resizing).
+@*
+@item -h, --help
+Display the usage and exit.
+@*
+@item -k, --keys
+Choose alternate key bindings file@*
+(default: $HOME/.weewm/keys.rc)
+@*
+@item -l, --licence
+Display WeeWM licence and exit.
+@*
+@item -m, --list-commands
+Display WeeWM commands (for keys.rc) and exit.
+@*
+@item -o, --list-options
+Display WeeWM options (for config.rc) and exit.
+@*
+@item -v, --version 
+Display WeeWM version and exit.
+
+@end table
+
+
+@c ******************************* Installation *******************************
+
+@node Installation, Configuration, Introduction, Top
+@chapter Installation
+@menu
+* Prerequisites::
+* Installation from sources::
+* Other packages::
+@end menu
+
+@node Prerequisites, Installation from sources, Installation, Installation
+@section Prerequisites
+
+You must have these programs correctly installed in order to run WeeWM:
+@itemize @bullet
+@item
+XFree, release 6 or newer (X11R6)
+@end itemize
+
+@node Installation from sources, Other packages, Prerequisites, Installation
+@section Installation from sources
+
+@subsection Getting source code
+
+You can download a source code package (recommended) or retrieve CVS base.@*
+
+@itemize @bullet
+@item
+Source package installation @b{(recommended)}
+
+Download the source package, following on of these 2 links:
+@itemize @minus
+@item @uref{http://www.weewm.org/download.php}
+@item @uref{http://savannah.nongnu.org/files/?group=weewm}
+@end itemize
+
+Depending of the file you get, issue one of the 2 following commands:@*
+@kbd{tar xvzf weewm-x.y.z.tar.gz}@*
+@kbd{tar xvjf weewm-x.y.z.tar.bz2}@*
+where x.y.z is the version (for example 0.1.2)
+@*
+@item
+Getting sources from CVS @b{(advanced users only)}
+
+@b{WARNING!} CVS sources may be unstable and may not compile!
+
+Create an empty directory ``weewm'' where you want, go into this directory and
+issue these commands:
+
+@kbd{cvs -d:pserver:anoncvs@@subversions.gnu.org:/cvsroot/weewm login}@*
+@kbd{cvs -z3 -d:pserver:anoncvs@@subversions.gnu.org:/cvsroot/weewm co weewm}@*
+@end itemize
+
+@subsection Compiling
+
+Go into directory with source code and issue this commands:@*
+@kbd{make}@*
+@kbd{make install} (as root user)
+
+@node Other packages, , Installation from sources, Installation
+@section Other packages
+
+@subsection Debian package
+
+Issue this command as root user:@*
+@kbd{dpkg -i weewm_x.y.z_i386.deb}@*
+@*
+You can create a .deb package yourself as well using the source
+code. To do this, you just have to go in the directory where is the
+source code and do :@*
+@kbd{debuild -rfakeroot -sd}@*
+A file named weewm_x.y.z_i386.deb should be available in the parent directory.@*
+@*
+An apt repository is also available to you. To take advantage of this
+feature, you have to add the following line to your
+/etc/apt/sources.list file :@*
+@i{deb http://apt.bounga.ath.cx/ unstable main}@*
+@*
+After what, as root, you can type the following commands :@*
+@kbd{apt-get update}@*
+@kbd{apt-get install weewm}@*
+@*
+With this method, the upgrade is really easier. Indeed, when a new
+version of WeeWM will be out, you will just have to do :@*
+@kbd{apt-get update}@*
+@kbd{apt-get upgrade}@*
+to upgrade to the new version.
+@*
+
+@subsection Mandrake/Redhat package
+
+@b{*** Package under construction! ***}@*
+@*
+Issue this command as root user:@*
+@kbd{rpm -i weewm_x.y.z-i386.rpm}
+
+@subsection BSD package
+
+@b{*** Not developed! ***}@*
+
+@subsection Gentoo package
+
+@b{*** Not developed! ***}@*
+
+@subsection Sorcerer package
+
+@b{*** Not developed! ***}@*
+
+@subsection Slackware package
+
+@b{*** Not developed! ***}@*
+
+
+@c ****************************** Configuration *******************************
+
+@node Configuration, Authors / Support, Installation, Top
+@chapter Configuration
+
+@menu
+* General options::
+* Key bindings::
+@end menu
+
+@node General options, Key bindings, Configuration, Configuration
+@section General options
+
+General options are stored in the config.rc file
+(default: $HOME/.weewm/config.rc).@*
+
+Detail of options:
+
+@table @code
+
+@item border
+width of border (in pixels)@*
+min: 1, max: 3, default: 1
+
+@item space
+space between window and border (in pixels)@*
+min: 0, max: 5, default: 1
+
+@item desktops
+number of desktops@*
+min: 1, max: 256, default: 5
+
+@item minwidth
+minimum window width@*
+min: 1, max: 4096, default: 15
+
+@item minheight
+minimum window height@*
+min: 1, max: 4096, default: 15
+
+@item move_offset
+offset for moving windows (in pixels)@*
+min: 1, max: 256, default: 16
+
+@item color.border.active
+color of active border@*
+default: 'green'
+
+@item color.border.inactive
+color of inactive border@*
+default: 'black'
+
+@item color.sticky
+color of border for sticky windows@*
+default: 'blue'
+
+@item info.width
+width of info window - NOT DEVELOPED!@*
+min: 10, max: 4096, default: 100
+
+@item info.height
+height of info window - NOT DEVELOPED!@*
+min: 10, max: 4096, default: 50
+
+@item dock.use
+dock activation (1=use, 0=no dock)@*
+min: 0, max: 1, default: 1
+
+@item dock.size
+dock size (in pixels)@*
+min: 8, max: 512, default: 64
+
+@item dock.position
+dock position (1=top, 2=left, 3=right, 4=bottom)@*
+min: 1, max: 4, default: 3
+
+@item dock.align
+dock alignment (0=top/left, 1=centered, 2=bottom/right)@*
+min: 0, max: 2, default: 0
+
+@end table
+
+@node Key bindings, , General options, Configuration
+@section Key bindings
+
+Key bindings are stored in the keys.rc file
+(default: $HOME/.weewm/keys.rc).
+
+Detail of key bindings:
+
+All key names can be found in file@*
+/usr/include/X11/keysymdef.h (key names without ``XK_'' prefix)
+
+Modifiers are:@*
+- ``Mod1'': alt key@*
+- ``Mod4'': windows key@*
+- ``Control'': control key@*
+- ``Shift'': shift key@*
+
+Detail of WeeWM internal commands for key bindings:
+
+@table @code
+
+@item next_win
+focus next window
+
+@item prev_win
+focus previous window
+
+@item pos_top_left
+move window to the top left corner
+
+@item pos_top
+move window to the top of the screen
+
+@item pos_top_right
+move window to the top right corner
+
+@item pos_left
+move window to the left of the screen
+
+@item pos_center
+center window on screen
+
+@item pos_right
+move window to the right of the screen
+
+@item pos_bottom_left
+move window to the bottom left corner
+
+@item pos_bottom
+move window to the bottom of the screen
+
+@item pos_bottom_right
+move window to the bottom right corner
+
+@item move_win_left
+move window horizontally (-X pixels)
+
+@item move_win_right
+move window horizontally (+X pixels)
+
+@item move_win_up
+move window vertically (-X pixels)
+
+@item move_win_down
+move window vertically (+X pixels)
+
+@item prev_desktop
+go to previous desktop
+
+@item next_desktop
+go to next desktop
+
+@item desktop[1-256]
+go to specified desktop
+
+@item send_prev_desktop
+send window to previous desktop
+
+@item send_next_desktop
+send window to next desktop
+
+@item win_max_horizontal
+maximize window horizontally
+
+@item win_max_vertical
+maximize window vertically
+
+@item win_max
+maximize window
+
+@item win_fix
+fix/unfix window
+
+@item win_memo_pos
+memorise position and size of window
+
+@item win_memo_desktop
+memorise desktop of window
+
+@item win_forget_pos
+forget memorised position for window
+
+@item win_forget_desktop
+forget memorised desktop for window
+
+@item win_kill
+kill current windows
+
+@item reconfigure
+reload config - NOT DEVELOPED!
+
+@item quit
+quit WeeWM
+
+@end table
+
+
+@c **************************** Authors / Support *****************************
+
+@node Authors / Support, , Configuration, Top
+@chapter Authors / Support
+
+@menu
+* Authors::
+* Report a bug::
+* Get support::
+@end menu
+
+@node Authors, Report a bug, Authors / Support, Authors / Support
+@section Authors
+
+WeeWM is written by:@*
+
+@itemize @bullet
+@item 
+FlashCode:
+
+@itemize @minus
+@item
+@i{e-mail:} @email{flashcode@@flashtux.org, flashcode AT flashtux DOT org}
+@item
+@i{web:} @uref{http://www.weewm.org}
+@item
+@i{irc:} server: irc.freenode.net, channel: #weewm
+@item
+@i{jabber:} flashcode@@jabber.org
+@item
+@i{icq:} 160677660
+@item
+@i{aim:} FlashCode AIM
+@item
+@i{yahoo:} FlashCode_Y
+@end itemize
+
+@item
+Xahlexx:
+
+@itemize @minus
+@item
+@i{e-mail:} @email{xahlexx@@tuxisland.org, xahlexx AT tuxisland DOT org}
+@item
+@i{web:} @uref{http://www.tuxisland.org}
+@item
+@i{irc:} server: irc.freenode.net, channel: #weewm
+@end itemize
+
+@item
+Bounga:
+
+@itemize @minux
+@item
+@i{e-mail:} @email{bounga@@altern.org, bounga AT altern DOT org}
+@item
+@i{web:} @uref{http://bounga.ath.cx}
+@item
+@i{irc:} server: irc.freenode.net, channel: #weewm
+@item
+@i{jabber:} Bounga@@jabber.org
+@item
+@i{icq:} 178297842
+@end itemize
+
+@end itemize
+
+@node Report a bug, Get support, Authors, Authors / Support
+@section Report a bug
+
+Before reporting a bug, check if the problem is known (look at BUGS file
+in latest source package or CVS).
+
+If you've discovered a new bug, please submit it on this page:@*
+@uref{http://savannah.nongnu.org/bugs/?func=addbug&group=weewm}
+
+@node Get support, , Report a bug, Authors / Support
+@section Get support
+
+Support with IRC:@*
+- server: @b{irc.freenode.net}@*
+- channel: @b{#weewm}@*
+
+Support with mailing list:
+You can subscribe and use the users mailing list for weewm support:@*
+- to subscribe: please visit @uref{http://mail.nongnu.org/mailman/listinfo/weewm-support}@*
+- to send a mail to all subscribers: send mail to @email{weewm-support@@nongnu.org}@*
+
+Or you can contact developers, @xref{Authors}.
+
+@bye
