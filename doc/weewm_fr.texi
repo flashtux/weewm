@@ -7,8 +7,8 @@
 @c WeeWM documentation (french version)
 @c
 @c Copyright (c) 2003 by FlashCode <flashcode@flashtux.org>
-@c                     , Xahlexx  <xahlexx@tuxisland.org>
-@c                   and Bounga <bounga@altern.org>
+@c                     , Xahlexx   <xahlexx@tuxisland.org>
+@c                   and Bounga    <bounga@altern.org>
 @c
 @c Permission is granted to copy, distribute and/or modify this document
 @c under the terms of the GNU Free Documentation License, Version 1.2
@@ -113,7 +113,7 @@ anglaise de cette documentation.
 @i{Participations / propositions :}
 Nous acceptons bien @'evidemment les propositions de documentations si
 celles ci sont bien r@'edig@'ees. En particulier @`a propos des sujets non
-ou trop peu couverts ici. Les traductions sont également les
+ou trop peu couverts ici. Les traductions sont @'egalement les
 bienvenues, en particulier dans les langues les plus courantes
 (italien, espagnol, allemand, etc). Envoyez simplement un email @`a
 l'adresse donn@'ee pr@'ec@'edemment si vous avez des questions sur la
@@ -240,7 +240,7 @@ Installation d'un paquet source @b{(recommand@'e)}
 T@'el@'echargez le paquet des sources sur l'un de ces deux sites :
 @itemize @minus
 @item @uref{http://www.weewm.org/download.php}
-@item @uref{http://savannah.nongnu.org/files/?group=weewm}@*
+@item @uref{http://savannah.nongnu.org/files/?group=weewm}
 @end itemize
 
 @item
@@ -268,7 +268,7 @@ Le code est ainsi compil@'e.
 
 Puis, en tant qu'utilisateur root :@*
 @kbd{make install}@*
-ce qui installera les fichiers dans les différents répertoires.
+ce qui installera les fichiers dans les diff@'erents r@'epertoires.
 
 @node Autres paquets, Lancer WeeWM, Installation depuis les sources, Installation
 @section Autres paquets
@@ -358,7 +358,7 @@ favori.
 
 Si vous lancez XFree @`a l'aide de la commande @kbd{startx}, il vous
 faut taper la commande suivante, pour rendre @'executable votre fichier
-fraîchement @'edit@'e :@*
+fra@^ichement @'edit@'e :@*
 @kbd{chmod 700 ~/.xinitrc}
 
 Dans le cas d'un login graphique cette manipulation n'est pas n@'ecessaire.
@@ -375,28 +375,32 @@ Vous pouvez maintenant tenter de lancer WeeWM en tapant :@*
 @menu
 * Options g@'en@'erales::
 * Configuration des touches::
+* Fond d'@'ecrans::
 @end menu
 
 @node Options g@'en@'erales, Configuration des touches, Configuration, Configuration
 @section Options g@'en@'erales
 
 Les options g@'en@'erales sont stock@'ees dans le fichier config.rc
-(par d@'efault : $HOME/.weewm/config.rc).@*
+(par d@'efaut : $HOME/.weewm/config.rc).@*
+Vous pouvez donc modifier @`a souhait les valeurs des options
+disponibles dans ce fichier pour faire correspondre WeeWM @`a vos attentes.
+
 
 D@'etail des options :
 
 @table @code
 
 @item border
-largeur de la bordure (en pixels)@*
+largeur de la bordure des fen@^etres (en pixels)@*
 min: 1, max: 3, d@'efaut: 1
 
 @item space
-espace entre la fen@^etre et la bordure (en pixels)@*
+espace entre la fen@^etre et sa bordure (en pixels)@*
 min: 0, max: 5, d@'efaut: 1
 
 @item desktops
-nombre de bureaux@*
+nombre de bureaux disponibles@*
 min: 1, max: 256, d@'efaut: 5
 
 @item minwidth
@@ -412,11 +416,11 @@ incr@'ement de d@'eplacement des fen@^etres (en pixels)@*
 min: 1, max: 256, d@'efaut: 16
 
 @item color.border.active
-couleur de la bordure active@*
+couleur de la bordure de la fen@^etre active@*
 d@'efaut: 'green'
 
 @item color.border.inactive
-couleur de la bordure inactive@*
+couleur de la bordure des fen@^etres inactives@*
 d@'efaut: 'black'
 
 @item color.sticky
@@ -449,11 +453,36 @@ min: 0, max: 2, d@'efaut: 0
 
 @end table
 
-@node Configuration des touches, , Options g@'en@'erales, Configuration
+@subsection Un exemple de fichier config.rc
+
+Voici un extrait du fichier d'exemple livr@'e avec les paquets de
+WeeWM. Vous pouvez le trouver dans son int@'egralit@'e dans le r@'epertoire @i{/usr/share/doc/weewm/examples/}.
+
+@kbd{
+border               1@*
+space                1@*
+desktops             5@*
+minwidth             15@*
+minheight            15@*
+move_offset          16@*
+color.border.active  green@*
+color.border.inactive black@*
+color.sticky         blue@*
+info.width           100@*
+info.height          50@*
+dock.use             1@*
+dock.size            64@*
+dock.position        2@*
+dock.align           0
+}
+
+
+@node Configuration des touches, Fond d'@'ecrans, Options g@'en@'erales, Configuration
 @section Configuration des touches
 
-Les configurations des touches sont stock@'ees dans le fichier keys.rc
-(par d@'efaut: $HOME/.weewm/keys.rc).
+La configuration des touches est stock@'es dans le fichier keys.rc
+(par d@'efaut: $HOME/.weewm/keys.rc). Ce fichier va vous permettre de
+choisir quelle combinaison de touches lancera telle ou telle commande.
 
 D@'etail des touches :
 
@@ -467,7 +496,8 @@ Les modificateurs sont :@*
 - ``Shift'': touche shift@*
 
 
-D@'etail des commandes internes WeeWM pour les associations de touches :
+Voici la liste des commandes internes de WeeWM pour les associations
+de touches : 
 
 @table @code
 
@@ -566,6 +596,84 @@ quitte WeeWM
 
 @end table
 
+@subsection Un exemple de fichier key.rc
+
+Voici un extrait du fichier d'exemple livr@'e avec les paquets de
+WeeWM. Vous pouvez le trouver dans son int@'egralit@'e dans le r@'epertoire
+@i{/usr/share/doc/weewm/examples/}.
+
+@kbd{
+Mod1|Control              Left       prev_desktop@*
+Mod1|Control              Right      next_desktop@*
+Mod4                      Left       send_prev_desktop@*
+Mod4                      Right      send_next_desktop@*
+Mod4                      F1         desktop_1@*
+Mod4                      F2         desktop_2@*
+Mod4|Shift                Up         pos_top@*
+Mod4|Shift                Down       pos_bottom@*
+Mod4|Shift                Left       pos_left@*
+Mod4|Shift                Right      pos_right@*
+Mod1|Control              Escape     quit@*
+Mod4            Return  run     aterm   0   7913    xterm@*
+Mod4            c       run1    xclock  1   0       xclock@*
+}
+
+Dans cette exemple, on a :@*
+@kbd{Mod1|Control              Left       prev_desktop}@*
+donc utliser les modificateurs Mod1 +
+Control (Mod1|Control) + la touche fl@'eche gauche (Left) effectuera
+l'action d'aller sur le bureau pr@'ec@'edent (prev_desktop).
+
+@kbd{Mod4            Return  run     aterm   0   7913    xterm}@*
+va lancer (param@`etre ``run'') un terminal aterm @`a une position donn@'ee.
+
+Si vous cherchez le nom d'une touche, vous pouvez utilisez @kbd{xev}
+pour le trouver. Par exemple, vous d@'esirez conna@^itre le nom de la
+touche ``fl@'eche droite''. Lancer donc xev, placez vous dans le fen@^etre
+qui apparait et presser la touche ``fl@'eche droite''. Dans votre
+terminal appara@^itra quelque chose ressemblant @`a :
+
+@kbd{
+KeyPress event, serial 24, synthetic NO, window 0xa00001,@*
+    root 0x3e, subw 0x0, time 11617881, (122,71), root:(126,88),@*
+    state 0x0, keycode 102 (keysym 0xff53, Right), same_screen YES,@*
+    XLookupString gives 0 characters:  ""
+}
+
+La partie qui nous int@'eresse est : @kbd{keycode 102 (keysym
+0xff53, Right)} o@`u l'on peut voir le mot-clef ``Right''. Notre touche
+s'appelle donc ``Right''.
+
+@node Fond d'@'ecrans, , Configuration des touches, Configuration
+@section Fond d'@'ecrans
+
+Tout d'abord, il faut savoir que les fond d'@'ecrans ne sont pas
+g@'er@'es directement par WeeWM mais par un programme externe. Nous vous
+pr@'esenterons ici les plus connus et nous vous expliquerons comment
+s'en servir de façon basique.
+
+@b{xsetroot :}@*
+xsetroot est le logiciel de fond d'@'ecrans livr@'e avec XFree. Il peut
+mettre en place des fonds d'@'ecrans seulement s'ils sont simples,
+comme une couleur unie. Il peut aussi utiliser une image bitmap. Pour
+plus d'information sur ce logiciel reportez vous @`a son manuel
+(@kbd{man xsetroot}).
+
+@b{Esetroot :}@*
+Esetroot est quant @`a lui plus destin@'e @`a l'affichage d'image et @`a la
+gestion de la transparence. En effet, si vous chargez votre image de
+fond d'@'ecran @`a l'aide de Esetroot et que vous utilisez la console
+Eterm, vous pourrez alors activer la transparence de cette
+derni@`ere. Pour afficher un fond d'@'ecran sur toute la totalit@'e de votre
+bureau, il vous suffit de taper @kbd{Esetroot -f votre_fichier.png}.
+
+Pour automatiser le chargement de votre fond d'@'ecran pr@'ef@'er@'e au
+chargement de WeeWM, vous pouvez par exemple (si vous n'utilisez pas
+de gestionnaire de login graphique) ajouter cette commande :
+
+@kbd{Esetroot -f /chemin/vers/mon/image.png}
+
+@`a la fin de votre fichier @i{~/.xinitrc}.
 
 @c **************************** Auteurs / Support *****************************
 

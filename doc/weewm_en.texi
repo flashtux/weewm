@@ -360,6 +360,7 @@ You can now start WeeWM by doing :@*
 @menu
 * General options::
 * Key bindings::
+* Backgrounds and wallpapers::
 @end menu
 
 @node General options, Key bindings, Configuration, Configuration
@@ -367,21 +368,23 @@ You can now start WeeWM by doing :@*
 
 General options are stored in the config.rc file
 (default: $HOME/.weewm/config.rc).@*
+You can modify the available option values in this file to make WeeWM
+correspond to your wishes.
 
 Detail of options:
 
 @table @code
 
 @item border
-width of border (in pixels)@*
+width of the window borders (in pixels)@*
 min: 1, max: 3, default: 1
 
 @item space
-space between window and border (in pixels)@*
+space between window and its border (in pixels)@*
 min: 0, max: 5, default: 1
 
 @item desktops
-number of desktops@*
+number of desktops available@*
 min: 1, max: 256, default: 5
 
 @item minwidth
@@ -397,11 +400,11 @@ offset for moving windows (in pixels)@*
 min: 1, max: 256, default: 16
 
 @item color.border.active
-color of active border@*
+color of the active window border@*
 default: 'green'
 
 @item color.border.inactive
-color of inactive border@*
+color of the inactive window border@*
 default: 'black'
 
 @item color.sticky
@@ -434,11 +437,37 @@ min: 0, max: 2, default: 0
 
 @end table
 
-@node Key bindings, , General options, Configuration
+@subsection A config.rc file example
+
+Here is an extract from the config.rc file example given with the
+WeeWM package. You can find the full version in the
+@i{/usr/share/doc/weewm/examples/} directory.
+
+@kbd{
+border               1@*
+space                1@*
+desktops             5@*
+minwidth             15@*
+minheight            15@*
+move_offset          16@*
+color.border.active  green@*
+color.border.inactive black@*
+color.sticky         blue@*
+info.width           100@*
+info.height          50@*
+dock.use             1@*
+dock.size            64@*
+dock.position        2@*
+dock.align           0
+}
+
+
+@node Key bindings, Backgrounds and wallpapers, General options, Configuration
 @section Key bindings
 
 Key bindings are stored in the keys.rc file
-(default: $HOME/.weewm/keys.rc).
+(default: $HOME/.weewm/keys.rc). This file will allow you to choose which
+keys combination will launch a defined command.
 
 Detail of key bindings:
 
@@ -549,6 +578,81 @@ reload config - NOT DEVELOPED!
 quit WeeWM
 
 @end table
+
+@subsection A key.rc file example
+
+Here is an extract from the example file given with the WeeWM
+package. You can find the full version in the
+@i{/usr/share/doc/weewm/examples/} directory.
+
+@kbd{
+Mod1|Control              Left       prev_desktop@*
+Mod1|Control              Right      next_desktop@*
+Mod4                      Left       send_prev_desktop@*
+Mod4                      Right      send_next_desktop@*
+Mod4                      F1         desktop_1@*
+Mod4                      F2         desktop_2@*
+Mod4|Shift                Up         pos_top@*
+Mod4|Shift                Down       pos_bottom@*
+Mod4|Shift                Left       pos_left@*
+Mod4|Shift                Right      pos_right@*
+Mod1|Control              Escape     quit@*
+Mod4            Return  run     aterm   0   7913    xterm@*
+Mod4            c       run1    xclock  1   0       xclock@*
+}
+
+In this example, we have :@*
+@kbd{Mod1|Control              Left       prev_desktop}@*
+so using the keys Mod1 + Control (Mod1|Control) + left arrow key
+(Left) will show us the previous desktop (prev_desktop).
+
+@kbd{Mod4            Return  run     aterm   0   7913    xterm}@*
+will launch (``run'' parameter) an aterm terminal to a given position.
+
+If you're searching for a key name, you could use @kbd{xev}
+to find it. For example, you want to know the name of the ``right
+arrow'' key. So launch xev, go to the new window and press the ``right
+arrow'' key. You should see something like this in you terminal :
+
+@kbd{
+KeyPress event, serial 24, synthetic NO, window 0xa00001,@*
+    root 0x3e, subw 0x0, time 11617881, (122,71), root:(126,88),@*
+    state 0x0, keycode 102 (keysym 0xff53, Right), same_screen YES,@*
+    XLookupString gives 0 characters:  ""
+}
+
+The interesting part is : @kbd{keycode 102 (keysym
+0xff53, Right)} where we can see the keyword ``Right''. So the name of
+the key we were searching for is ``Right''.
+
+@node Backgrounds and wallpapers, , Key bindings, Configuration
+@section Backgrounds and wallpapers
+
+First of all, you have to know that the backgrounds and the wallpapers
+are not handle by WeeWM itself but by an external software. We will
+introduce here the most well-known and we will explain how to use it
+the basic way.
+
+@b{xsetroot :}@*
+xsetroot is a background software include in the XFree package. It can
+handle basic backgrounds like a plain color background. It can handle
+a bitmap image too. For more information about this software, see its
+manual (@kbd{man xsetroot}).
+
+@b{Esetroot :}@*
+Esetroot as for him is more dedicated to handle wallpapers and
+transparency. Indeed, if you load your wallpaper using Esetroot and
+that you're using the Eterm terminal emulator, you will be able to
+activate the transparency for this one. To display a wallpaper on the
+whole screen, you just have to do @kbd{Esetroot -f votre_fichier.png}.
+
+To automate the loading of your favourite wallpaper when you start
+WeeWM, you can for example (if you don't use a graphical login
+display) add this line :
+
+@kbd{Esetroot -f /chemin/vers/mon/image.png}
+
+at the end of your @i{~/.xinitrc} file
 
 
 @c **************************** Authors / Support *****************************
