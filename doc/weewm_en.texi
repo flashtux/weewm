@@ -96,7 +96,7 @@ Bounga: @email{bounga@@altern.org}
 @node About this documentation, , , Introduction
 @section About this documentation
 
-This is the WeeWM documentation, a windows manager for XFree. It was
+This is the WeeWM documentation, a window manager for XFree. It was
 generated from a .texi file (texinfo format) available with the WeeWM
 sources and in all the package availables. We are using this format to
 make this documentation easily adaptable to the various output formats.
@@ -123,7 +123,7 @@ before.
 
 @subsection What is WeeWM ?
 
-WeeWM is a windows manager for XFree that is designed to be very fast
+WeeWM is a window manager for XFree that is designed to be very fast
 and light.@*
 All can be done on the keyboard. Fully customisable, it handle the
 dock, the smart windows placement, the virtual desktops,
@@ -200,7 +200,18 @@ of reading the FAQ available with the sources.
 * Prerequisites::
 * Installation from sources::
 * Other packages::
+* Start WeeWM::
 @end menu
+
+A lot of WeeWM binary package are or will be available for the most
+common distributions. Those package should help you to install
+WeeWM. However, you could need for a reason or another to compile the
+source code. For example, the most recent version of WeeWM could not
+be available in binary package. You could also want to compile WeeWM
+with certain options that are not set in the binary packages.
+
+This part of the documentation should allow to the beginners to be
+able to compile and to install the WeeWM window manager.
 
 @node Prerequisites, Installation from sources, Installation, Installation
 @section Prerequisites
@@ -222,17 +233,12 @@ You can download a source code package (recommended) or retrieve CVS base.@*
 @item
 Source package installation @b{(recommended)}
 
-Download the source package, following on of these 2 links:
+Download the source package, following on of these two links:
 @itemize @minus
 @item @uref{http://www.weewm.org/download.php}
 @item @uref{http://savannah.nongnu.org/files/?group=weewm}
 @end itemize
 
-Depending of the file you get, issue one of the 2 following commands:@*
-@kbd{tar xvzf weewm-x.y.z.tar.gz}@*
-@kbd{tar xvjf weewm-x.y.z.tar.bz2}@*
-where x.y.z is the version (for example 0.1.2)
-@*
 @item
 Getting sources from CVS @b{(advanced users only)}
 
@@ -247,11 +253,20 @@ issue these commands:
 
 @subsection Compiling
 
-Go into directory with source code and issue this commands:@*
-@kbd{make}@*
-@kbd{make install} (as root user)
+To extract the archive, depending on the file you get, issue one of the two following commands:@*
+@kbd{tar xvzf weewm-x.y.z.tar.gz}@*
+@kbd{tar xvjf weewm-x.y.z.tar.bz2}@*
+where x.y.z is the version (for example 0.1.2)
 
-@node Other packages, , Installation from sources, Installation
+Then, go into the directory with the source code and issue this command:@*
+@kbd{make}@*
+So your source code is now compiled.
+
+Then, as root user:@*
+@kbd{make install}
+will install the files in the good directories.
+
+@node Other packages, Start WeeWM, Installation from sources, Installation
 @section Other packages
 
 @subsection Debian package
@@ -304,6 +319,38 @@ Issue this command as root user:@*
 
 @b{*** Not developed! ***}@*
 
+@node Start WeeWM, ,Other packages, Installation
+@section Start WeeWM
+
+Now that the installation has been successful, you have to start WeeWM.
+
+There is generally two ways to start X (so WeeWM). The traditionnal
+way is to use the startx command. The other way is to use a graphical
+login display (as gdm, xdm or kdm).
+
+If X is start with the traditionnal way (via startx), the important
+file is named .xinitrc and is located in your home directory. If you
+start X via a graphical login display, the file is .Xsession and is
+located in your home directory too.
+
+The following step is to find the WeeWM binary. For most of the users,
+it's located in /usr/bin/weewm. Now, you have to edit (or create) the
+file mentionned before. You just have to add this line :@*
+@kbd{exec /usr/bin/weewm}
+
+Edit the path @i{/usr/bin/weewm} to put the good path of WeeWM on your
+system. If you don't find it, trying @kbd{type weewm} should give you
+the answer. When this step is done, you can save the file and close
+your editor.
+
+If you start XFree doing @kbd{startx}, you have to make you ~/.xinitrc
+executable, so you have to type:@*
+@kbd{chmod 700 ~/.xinitrc}
+
+If you're using a graphical login display, you don't have to do it.
+
+You can now start WeeWM by doing :@*
+@kbd{startx}
 
 @c ****************************** Configuration *******************************
 

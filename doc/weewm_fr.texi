@@ -25,13 +25,13 @@
 
 @titlepage
 @title @image{weewm} - Wee Enhanced Environment
-@subtitle Gestionnaire de fen@^etres rapide et l@'eger pour XFree
+@subtitle Gestionnaire de fen@^etre rapide et l@'eger pour XFree
 @subtitle version 0.0.2 - 2 juin 2003
 
 @author FlashCode , Xahlexx et Bounga
 @page
 
-Ce manuel documente WeeWM, un gestionnaire de fen@^etres rapide et l@'eger
+Ce manuel documente WeeWM, un gestionnaire de fen@^etre rapide et l@'eger
 pour XFree.
 
 Ce manuel fait partie de WeeWM.@*
@@ -96,7 +96,7 @@ Bounga: @email{bounga@@altern.org}
 @node A propos de cette documentation, , , Introduction
 @section A propos de cette documentation
 
-Ceci est la documentation de WeeWM, un gestionnaire de fen@^etres pour
+Ceci est la documentation de WeeWM, un gestionnaire de fen@^etre pour
 XFree. Elle est cr@'ee @`a partir d'un fichier .texi (format texinfo)
 disponible avec les sources de WeeWM et dans les paquets
 disponibles. Nous utilisons ce format dans le but de rendre cette
@@ -110,20 +110,22 @@ pouvez @'egalement essayer de le joindre sur @b{irc.freenode.net}, canal
 @b{#weewm} (Nick: Bounga). Nicolas s'occupe de la version française et
 anglaise de cette documentation.
 
-@i{Soumissions :}
-Nous acceptons bien @'evidemment les soumissions de documentations si
+@i{Participations / propositions :}
+Nous acceptons bien @'evidemment les propositions de documentations si
 celles ci sont bien r@'edig@'ees. En particulier @`a propos des sujets non
-ou trop peu couverts ici. Envoyez simplement un email @`a l'adresse
-donn@'ee pr@'ec@'edemment si vous avez des questions sur la mani@`ere dont
-vous pourriez aider ou si vous avez de la documentation que vous
-voudriez bien ajouter.
+ou trop peu couverts ici. Les traductions sont également les
+bienvenues, en particulier dans les langues les plus courantes
+(italien, espagnol, allemand, etc). Envoyez simplement un email @`a
+l'adresse donn@'ee pr@'ec@'edemment si vous avez des questions sur la
+mani@`ere dont vous pourriez aider ou si vous avez de la documentation
+que vous voudriez nous fournir.
 
 @node A propos de WeeWM, , , Introduction
 @section A propos de WeeWM
 
 @subsection Qu'est ce qu'est WeeWM ?
 
-WeeWM est un gestionnaire de fen@^etres rapide et l@'eger pour XFree.@*
+WeeWM est un gestionnaire de fen@^etre rapide et l@'eger pour XFree.@*
 Tout peut @^etre contr@^ol@'e au clavier. Enti@`erement param@'etrable, il
 g@`ere le dock, le placement intelligent des fen@^etres, les bureaux virtuels,
 et bien d'autres choses encore...
@@ -199,7 +201,21 @@ WeeWM, pensez @`a lire la FAQ disponible avec les sources.
 * Pr@'e-requis::
 * Installation depuis les sources::
 * Autres paquets::
+* Lancer WeeWM::
 @end menu
+
+De nombreux paquets binaires de WeeWM sont ou seront bient@^ot
+disponibles pour les diff@'erentes distributions les plus courantes. Ces
+paquets vous permettrons une installation simplifi@'ee de
+WeeWM. Cependant, vous pourriez avoir besoin pour une raison ou pour
+une autre de compiler les sources. Par exemple, la version le plus
+r@'ecente de WeeWM peut ne pas @^etre disponible en paquet binaire. Vous
+pouvez encore vouloir compiler WeeWM avec certaines options qui ont
+@'et@'es laiss@'ees de c@^ot@'e dans les paquets binaires.
+
+Cette partie de la documentation permettra donc aux moins aguerris
+d'entre vous, de pouvoir tout de m@^eme compiler et installer le
+gestionnaire de fen@^etre WeeWM.
 
 @node Pr@'e-requis, Installation depuis les sources, Installation, Installation
 @section Pr@'e-requis
@@ -213,7 +229,7 @@ XFree, version 6 ou plus r@'ecente (X11R6)
 @node Installation depuis les sources, Autres paquets, Pr@'e-requis, Installation
 @section Installation depuis les sources
 
-@subsection Obtention du code source
+@subsection Obtenir le code source
 
 Vous pouvez t@'el@'echarger un paquet avec le code source ou bien r@'ecup@'erer la base CVS.@*
 
@@ -221,16 +237,11 @@ Vous pouvez t@'el@'echarger un paquet avec le code source ou bien r@'ecup@'erer 
 @item
 Installation d'un paquet source @b{(recommand@'e)}
 
-T@'el@'echargez le paquet des sources sur l'un de ces 2 sites :
+T@'el@'echargez le paquet des sources sur l'un de ces deux sites :
 @itemize @minus
 @item @uref{http://www.weewm.org/download.php}
-@item @uref{http://savannah.nongnu.org/files/?group=weewm}
+@item @uref{http://savannah.nongnu.org/files/?group=weewm}@*
 @end itemize
-
-Selon le fichier que vous avez r@'ecup@'er@'e, tapez l'une de ces 2 commandes :@*
-@kbd{tar xvzf weewm-x.y.z.tar.gz}@*
-@kbd{tar xvjf weewm-x.y.z.tar.bz2}@*
-o@`u x.y.z est la version (par exemple 0.1.2)
 
 @item
 R@'ecup@'eration des sources du CVS @b{(utilisateurs avanc@'es seulement)}
@@ -244,13 +255,22 @@ r@'epertoire et tapez ces commandes :
 @kbd{cvs -z3 -d:pserver:anoncvs@@subversions.gnu.org:/cvsroot/weewm co weewm}@*
 @end itemize
 
-@subsection Compilation
+@subsection Extraction et compilation
 
-Allez dans le r@'epertoire avec les sources et tapez ces commandes :@*
+Pour extraire l'archive, selon le fichier que vous avez r@'ecup@'er@'e, tapez l'une de ces 2 commandes :@*
+@kbd{tar xvzf weewm-x.y.z.tar.gz}@*
+@kbd{tar xvjf weewm-x.y.z.tar.bz2}@*
+o@`u x.y.z est la version (par exemple 0.1.2)
+
+Allez ensuite dans le r@'epertoire contenant les sources et tapez cette commande :@*
 @kbd{make}@*
-@kbd{make install} (en utilisateur root)
+Le code est ainsi compil@'e.
 
-@node Autres paquets, , Installation depuis les sources, Installation
+Puis, en tant qu'utilisateur root :@*
+@kbd{make install}@*
+ce qui installera les fichiers dans les différents répertoires.
+
+@node Autres paquets, Lancer WeeWM, Installation depuis les sources, Installation
 @section Autres paquets
 
 @subsection Paquet Debian
@@ -306,6 +326,45 @@ Tapez cette commande sous l'utilisateur root :@*
 @subsection Paquet Slackware
 
 @b{*** Non d@'evelopp@'e ! ***}@*
+
+@node Lancer WeeWM, ,Autres paquets, Installation
+@section Lancer WeeWM
+
+Maintenant que l'installation s'est d@'eroul@'ee avec succ@'es, il faut
+lancer WeeWM.
+
+Il y a g@'eneralement deux mani@`eres de d@'emarrer X (et donc WeeWM). La
+voie traditionnelle est d'utiliser la commande startx. L'autre mani@`ere
+est d'utiliser un gestionnaire de login graphique (tels que gdm, xdm
+ou kdm).
+
+Si X est demarr@'e par la voie traditionnelle (via startx), le fichier
+important est appel@'e .xinitrc et est pr@'esent dans votre r@'epertoire
+personnel. Dans le cas o@`u vous d@'emarrez via un gestionnaire de login
+graphique, le fichier est .Xsession et est @'egalement pr@'esent dans
+votre r@'epertoire personnel.
+
+La prochaine @'etape est de trouver l'ex@'ecutable pour WeeWM. Pour la
+plupart des personnes, il est situ@'e dans /usr/bin/weewm. D@'esormais
+vous devez @'editer (ou cr@'eer) le fichier mentionn@'e ci-dessus. Ajoutez
+seulement la ligne suivante au bas de ce fichier :@*
+@kbd{exec /usr/bin/weewm}
+
+Modifiez le @i{/usr/bin/weewm} pour le lieu o@`u est votre ex@'ecutable
+WeeWM. Si vous ne le trouvez pas, un simple @kbd{type weewm} vous
+donnera son emplacement exact. Une fois cette @'etape termin@'ee vous
+pouvez sauvez le fichier en cours d'@'edition et fermer votre @'editeur
+favori.
+
+Si vous lancez XFree @`a l'aide de la commande @kbd{startx}, il vous
+faut taper la commande suivante, pour rendre @'executable votre fichier
+fraîchement @'edit@'e :@*
+@kbd{chmod 700 ~/.xinitrc}
+
+Dans le cas d'un login graphique cette manipulation n'est pas n@'ecessaire.
+
+Vous pouvez maintenant tenter de lancer WeeWM en tapant :@*
+@kbd{startx}
 
 
 @c ****************************** Configuration *******************************
