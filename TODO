@@ -1,7 +1,7 @@
 WeeWM - Wee Window Manager for XFree
 ====================================
 
-TODO - 2003-06-26
+TODO - 2003-07-07
 
 Legend:
 # done
@@ -10,16 +10,5 @@ Legend:
 ? is this really necessary?
 
 
-v0.0.2:
-# light windows decorations
-# virtual desktops
-# solid window drags
-# full multihead support
-+ dock management
-# "intelligent" windows placement
-# config file for bindings
-# memorize pos,width/height,desktop
-
-
-Future versions:
+for v0.0.3:
 - hot configuration reading
