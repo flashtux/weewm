@@ -12,3 +12,4 @@ Legend:
 
 for v0.0.3:
 - hot configuration reading
+- dock size dynamic allocation
