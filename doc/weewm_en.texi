@@ -360,6 +360,7 @@ You can now start WeeWM by doing:@*
 * General options::
 * Key bindings::
 * Backgrounds and wallpapers::
+* xinitrc::
 @end menu
 
 @node General options, Key bindings, Configuration, Configuration
@@ -624,7 +625,7 @@ The interesting part is: @kbd{keycode 102 (keysym
 0xff53, Right)} where we can see the keyword ``Right''. So the name of
 the key we were searching for is ``Right''.
 
-@node Backgrounds and wallpapers, , Key bindings, Configuration
+@node Backgrounds and wallpapers, xinitrc, Key bindings, Configuration
 @section Backgrounds and wallpapers
 
 First of all, you have to know that the backgrounds and the wallpapers
@@ -653,6 +654,55 @@ display):
 
 at the end of your @i{~/.xinitrc} file
 
+@node xinitrc, ,Backgrounds and wallpapers, Configuration
+@section .xinitrc / .xsession
+
+@subsection .xinitrc utility
+
+You need to know that a window manager is a software for X like
+mozilla, gimp or aterm. We can think that X starts a window manager
+and that's the softwares are launch by the window manager. However, in
+fact, the things aren't like this. It is XFree that launch the
+softwares and the window manager, as its name indicates it, does
+nothing more than managing the windows. You can, for example start a
+windows manager, launch your softwares, then kill the window manager
+and start another one, then continue to work.
+
+When X is started, it reads your .xinitrc or .xsession script. Once
+that the whole of the orders of this file have finishes their
+execution, X shutdowns. And it's not the fact of quitting the window
+manager that makes X shutdowns as we can think.                                         
+
+@subsection Script syntax
+
+To understand the following, you need to have some basic knowledges
+about the shell. For example, when you enter a command in a shell, you
+can't do another thing in this shell before that the first command has
+end-up. The scripts (and so .xinitrc or .xsession) has the same behavior.
+
+Obviously, there is a way to launch a command in a shell and to
+immediately regain the hand. This method will allow you to launch
+automatically some softwares that you want on the X startup. Those
+softwares must be put on the background. We can do that, adding a
+``&'' at the end of the command line. Thus, if you want that xclock
+runs at every XFree starting, add this line to your .xinitrc : 
+             
+@kbd{xclock &}
+
+When all the commands that you want to automatically launch are added,
+you can go to the window manager starting step. To do this, we will
+use the @kbd{exec} command.                                                                             
+                                 
+A .xinitrc example file could be :@*
+@kbd{
+# we start some softwares@*
+xmms &@*
+gkrellm -w &@*
+idesk &@*
+@*
+# then we start our window manager@*
+exec weewm@*
+}
 
 @c **************************** Authors / Support *****************************
 

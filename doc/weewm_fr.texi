@@ -377,6 +377,7 @@ Vous pouvez maintenant tenter de lancer WeeWM en tapant@tie{}:@*
 * Options generales::
 * Configuration des touches::
 * Fond d ecrans::
+* xinitrc::
 @end menu
 
 @node Options generales, Configuration des touches, Configuration, Configuration
@@ -645,7 +646,7 @@ La partie qui nous int@'eresse est : @kbd{keycode 102 (keysym
 0xff53, Right)} o@`u l'on peut voir le mot-clef ``Right''. Notre touche
 s'appelle donc ``Right''.
 
-@node Fond d ecrans, , Configuration des touches, Configuration
+@node Fond d ecrans, xinitrc, Configuration des touches, Configuration
 @section Fond d'@'ecrans
 
 Tout d'abord, il faut savoir que les fond d'@'ecrans ne sont pas
@@ -675,6 +676,62 @@ de gestionnaire de login graphique) ajouter cette commande@tie{}:
 @kbd{Esetroot -f /chemin/vers/mon/image.png}
 
 @`a la fin de votre fichier @i{~/.xinitrc}.
+
+@node xinitrc, ,Fond d ecrans, Configuration
+@section .xinitrc / .xsession
+
+@subsection L'utilit@'e de .xinitrc
+
+Il faut savoir qu'un gestionnaire de fen@^etres n'est qu'une application
+pour X tout comme mozilla, gimp ou aterm. On peut, au premier abord,
+penser que X lance un gestionnaire de fen@^etres et que c'est ce dernier
+qui va se charger d'ex@'ecuter les programmes. Pourtant, en r@'ealit@'e, les
+choses ne se passent pas comme ça. C'est bien XFree qui lance les
+applications et le gestionnaire de fen@^etres, comme son nom l'indique,
+ne fait que de s'occuper de la gestion des fen@^etres. Vous pouvez par
+exemple lancer un gestionnaire de fen@^etre, lancer vos applications
+puis tuer le gestionnaire de fen@^etres et en lancer un autre et
+continuer @`a travailler.
+
+Lorsque X est lanc@'e, il lit votre script .xinitrc ou .xsession. Une
+fois que l'ensemble des commandes de ce fichier ont finit leur
+@'execution, X se termine. Et ce n'est pas le fait de sortir de son
+gestionnaire de fen@^etre qui fait que X se termine comme on pourrait le
+penser.                                         
+
+@subsection Syntaxe du script
+
+Pour comprendre la suite, vous devez avoir quelques connaissances de
+base sur le shell. Par exemple, quand vous tapez une commande dans un
+shell, vous ne pouvez pas faire autre chose dans ce shell jusqu'@`a ce
+que la commande soit finie. Les fichiers de script (et donc .xinitrc
+ou .xsession) se comportent de la m@^eme façon.
+
+Il y a @'evidemment une m@'ethode qui permet de lancer une commande dans
+un shell et de reprendre tout de suite la main. Cette m@'ethode va vous
+permettre de pouvoir lancer des programmes que vous voulez
+automatiquement voir s'@'executer au d@'emarrage de X. Ces applications
+doivent @^etre misent en tâches de fond. On peut faire cela en ajoutant
+un ``&'' @`a la fin de la ligne de commande. Ainsi, si vous voulez que
+xclock s'ex@'ecute @`a chaque lancement de XFree, ajoutez cette ligne
+@`a votre .xinitrc : 
+             
+@kbd{xclock &}
+
+Une fois toutes les commandes @`a lancer automatiquement ajout@'ees, vous
+pouvez passer au lancement du gestionnaire de fen@^etre. Pour cela, nous
+allons utiliser la commande @kbd{exec}.                                                                             
+                                 
+Un exemple de .xinitrc pourrait @^etre :@*
+@kbd{
+# on lance quelques applications@*
+xmms &@*
+gkrellm -w &@*
+idesk &@*
+@*
+# puis on lance notre gestionnaire de fen@^etres@*
+exec weewm@*
+}
 
 @c **************************** Auteurs / Support *****************************
 
