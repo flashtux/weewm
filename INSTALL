@@ -1,11 +1,13 @@
 WeeWM - Installation instructions
 =================================
 
-1) Run 'make'
+1) Run './configure'
 
-2) As root : run 'make install'
+2) Run 'make'
 
-3) Modify your .xinitrc to run WeeWM at Xfree startup
+3) As root : run 'make install'
+
+4) Modify your .xinitrc to run WeeWM at Xfree startup
    
    At first startup, WeeWM will automatically create
    default config files :
@@ -13,4 +15,4 @@ WeeWM - Installation instructions
      ~/.weewm/keys.rc
    You can customize these files.
 
-4) Enjoy !  :-)
+5) Enjoy !  :-)

@@ -19,53 +19,62 @@
 
 
 #ifndef __WEEWM_CLIENT_H
-#define __WEEWM_CLIENT_H    1
+#define __WEEWM_CLIENT_H 1
 
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 
-#define NO_DOCK     -1
+#define NO_DOCK -1
 
 typedef struct t_client t_client;
 
 struct t_client
 {
-    t_client    *next;
-    Window      window;
-    Window      parent;
-    XSizeHints  *size;
-    char        *application_name;
-    int         ignore_unmap;
-    int         x, y, width, height;
-    int         oldx, oldy, oldw, oldh, oldmx, oldmy, oldmw, oldmh;
-    int         border;
-    int         vdesk[256];
-    int         screen;
-    int         dock_position;
+    t_client *next;
+    Window window;
+    Window parent;
+    XSizeHints *size;
+    char *application_name;
+    int ignore_unmap;
+    int x, y, width, height;
+    int oldx, oldy, oldw, oldh;
+    int oldmx, oldmy, oldmw, oldmh;
+    int border;
+    int vdesk[256];
+    int screen;
+    int dock_position;
 };
 
 typedef struct t_motif_wm_hints t_motif_wm_hints;
     
 struct t_motif_wm_hints
 {
-    unsigned long   flags;
-    unsigned long   functions;
-    unsigned long   decorations;
+    unsigned long flags;
+    unsigned long functions;
+    unsigned long decorations;
 };
 
-extern int      dock_pos_free;
-extern int      dock_size;
+extern t_client *head_client;
+extern t_client *current_client;
+extern int dock_pos_free;
+extern int dock_size;
 
-
-extern void set_wm_state(const Window, const Atom, int, long);
-extern void send_wm_delete(t_client *);
-extern void set_smart_position(t_client *, char);
-extern void recalculate_dock_positions();
-extern void change_gravity(t_client *, int);
-extern void send_config(t_client *);
-extern void create_new_client(Window, int);
-extern t_client *find_client(Window);
-extern t_client *get_first_client_desktop(int, int);
-extern void remove_client(t_client *, int);
+extern void client_new (Window, int);
+extern void set_wm_state (const Window, const Atom, int, long);
+extern void client_send_wm_delete (t_client *);
+extern void client_set_smart_position (t_client *, char);
+extern void client_recalculate_dock_positions ();
+extern void client_change_gravity (t_client *, int);
+extern void client_send_config (t_client *);
+extern void client_draw_outline (t_client *);
+extern void client_hide (t_client *);
+extern void client_unhide (t_client *, int);
+extern void client_recalculate_sweep (t_client *, int, int, int, int);
+extern void client_drag (t_client *);
+extern void client_move (t_client *, int);
+extern void client_resize (t_client *, int);
+extern t_client *client_search (Window);
+extern t_client *client_get_first_for_desktop (int, int);
+extern void client_remove (t_client *, int);
 
 #endif /* client.h */

@@ -19,11 +19,10 @@
 
 
 #ifndef __WEEWM_INFO_H
-#define __WEEWM_INFO_H  1
+#define __WEEWM_INFO_H 1
 
-
-extern void info_init();
-extern void info_add(char *, int);
-extern void info_destroy();
+extern void info_init ();
+extern void info_add (char *, int);
+extern void info_destroy ();
 
 #endif /* info.h */

@@ -19,20 +19,18 @@
 
 
 #ifndef __WEEWM_H
-#define __WEEWM_H   1
+#define __WEEWM_H 1
 
 #include <X11/Xlib.h>
-#include "client.h"
 
-/* #define DEBUG */
-
-#define VERSION     "0.0.3-pre1"
+#define WEEWM_WEBSITE "http://www.weewm.org"
 
 #define WEE_LICENCE \
-    "WeeWM " VERSION " (c) Copyright 2004\n" \
-    "by FlashCode <flashcode@flashtux.org>\n" \
-    "   Xahlexx  <xahlexx@tuxfamily.org>\n" \
-    "   Bounga <bounga@altern.org>\n\n" \
+    PACKAGE_STRING " (c) Copyright 2004, compiled on " __DATE__ " " __TIME__ \
+    "\nDeveloped by FlashCode <flashcode@flashtux.org>\n" \
+    "             Xahlexx  <xahlexx@tuxfamily.org>\n" \
+    "             Bounga <bounga@altern.org>\n" \
+    "Website: " WEEWM_WEBSITE "\n\n" \
     "This program is free software; you can redistribute it and/or modify\n" \
     "it under the terms of the GNU General Public License as published by\n" \
     "the Free Software Foundation; either version 2 of the License, or\n" \
@@ -100,24 +98,21 @@
     ">         or shortcomings in the software, or damages caused by it.\n" \
     ">\n" \
     "> There is no warranty for this software.  Have a nice day.\n\n"
-    
 
-
-#define WEE_USAGE \
-    "WeeWM " VERSION " (c) Copyright 2004\n" \
-    "by FlashCode <flashcode@flashtux.org>\n" \
-    "   Xahlexx  <xahlexx@tuxfamily.org>\n" \
-    "   Bounga <bounga@altern.org>\n\n" \
+#define WEE_USAGE1 \
+    PACKAGE_STRING " (c) Copyright 2004, compiled on " __DATE__ " " __TIME__ \
+    "\nDeveloped by FlashCode and Xalhexx - " WEEWM_WEBSITE "\n\n" \
+    "Usage: %s [options...]\n\n" \
     "  -c, --config        config file to load (default: $HOME/.weewm/config.rc)\n" \
     "  -d, --display       choose X display\n" \
     "  -f, --font          font name\n" \
-    "  -h, --help          this help screen\n", \
+    "  -h, --help          this help screen\n"
+#define WEE_USAGE2 \
     "  -k, --keys          key bindings file to load (default: $HOME/.weewm/keys.rc)\n" \
     "  -l, --licence       display program licence\n" \
     "  -m, --list-commands display WeeWM commands (for keys.rc)\n" \
     "  -o, --list-options  display WeeWM options (for config.rc)\n" \
     "  -v, --version       display WeeWM version\n\n"
-
 
 #define DEFAULT_DISPLAY         ":0"
 #define DEFAULT_FONT            "variable"
@@ -137,43 +132,38 @@
 #define DOCK_ALIGN_CENTER       1
 #define DOCK_ALIGN_BOTTOM_RIGHT 2
 
+extern char *display_name;
+extern char *font_name;
 
-extern char         *display_name;
-extern char         *font_name;
+extern Display *display;
+extern XFontStruct *font;
+extern int num_heads;
+extern int vdesk[256];
+extern GC invert_gc[256];
+extern Atom atom_wm_state;
+extern Atom atom_wm_change_state;
+extern Atom atom_wm_protos;
+extern Atom atom_wm_delete;
+extern Atom atom_wm_cmapwins;
+extern Atom atom_motif_wm_hints;
+extern XColor color_border1;
+extern XColor color_border0;
+extern XColor color_sticky;
+extern Cursor cursor_arrow;
+extern Cursor cursor_move;
+extern Cursor cursor_resize;
 
-extern Display      *display;
-extern XFontStruct  *font;
-extern int          num_heads;
-extern t_client     *head_client;
-extern t_client     *current_client;
-extern int          vdesk[256];
-extern GC           invert_gc[256];
-extern Atom         atom_wm_state;
-extern Atom         atom_wm_change_state;
-extern Atom         atom_wm_protos;
-extern Atom         atom_wm_delete;
-extern Atom         atom_wm_cmapwins;
-extern Atom         atom_motif_wm_hints;
-extern XColor       color_border1;
-extern XColor       color_border0;
-extern XColor       color_sticky;
-extern Cursor       cursor_arrow;
-extern Cursor       cursor_move;
-extern Cursor       cursor_resize;
+extern int NumLockMask, CapsLockMask, ScrollLockMask;
+extern int ignore_modifiers[NUM_IGNORE_MODIFIERS];
 
-extern int          NumLockMask, CapsLockMask, ScrollLockMask;
-extern int          ignore_modifiers[NUM_IGNORE_MODIFIERS];
+extern int default_config_name;
+extern int default_keys_name;
 
-extern int          default_config_name;
-extern int          default_keys_name;
+extern char *memo_file;
 
-extern char         *memo_file;
+extern int handle_xerror (Display *, XErrorEvent *);
+extern int ignore_xerror (Display *, XErrorEvent *);
 
-
-extern int handle_xerror(Display *, XErrorEvent *);
-extern int ignore_xerror(Display *, XErrorEvent *);
-
-
-extern void wee_shutdown();
+extern void wee_shutdown ();
 
 #endif /* weewm.h */

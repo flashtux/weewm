@@ -1,7 +1,7 @@
 WeeWM - Wee Window Manager for XFree
 ====================================
 
-TODO - 2004-03-04
+TODO - 2004-03-07
 
 Legend:
 # done
@@ -10,7 +10,12 @@ Legend:
 ? is this really necessary?
 
 
-for v0.0.3:
-+ "smart" maximize (in free space)
-- hot configuration reading
-- dock size dynamic allocation
+v0.0.3:
+------
+
+ + "smart" maximize (in free space)
+ - dock size dynamic allocation
+
+Future versions:
+---------------
+ - hot configuration reading

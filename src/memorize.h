@@ -19,35 +19,31 @@
 
 
 #ifndef __WEEWM_MEMORIZE_H
-#define __WEEWM_MEMORIZE_H  1
-
+#define __WEEWM_MEMORIZE_H 1
 
 #define APPLI_LINE_BEGIN    "*** "
 
 #define MEMO_NOT_SET        -999999
 
-
 typedef struct t_memo_win t_memo_win;
     
 struct t_memo_win
 {
-    t_memo_win  *next;
-    char        *application_name;
-    int         x, y;
-    int         width, height;
-    int         desktop;
+    t_memo_win *next;
+    char *application_name;
+    int x, y;
+    int width, height;
+    int desktop;
 };
 
+extern t_memo_win *memo_win;
 
-extern t_memo_win   *memo_win;
-
-extern void memo_init();
-extern int  read_memo_file(char *);
-extern int  save_memo_file(char *);
-extern void memorize_client_position(t_client *);
-extern void memorize_client_desktop(t_client *);
-extern void forget_client_position(t_client *);
-extern void forget_client_desktop(t_client *);
-
+extern void memo_init ();
+extern int read_memo_file (char *);
+extern int save_memo_file (char *);
+extern void memorize_client_position (t_client *);
+extern void memorize_client_desktop (t_client *);
+extern void forget_client_position (t_client *);
+extern void forget_client_desktop (t_client *);
 
 #endif /* memorize.h */

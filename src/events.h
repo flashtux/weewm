@@ -19,48 +19,49 @@
 
 
 #ifndef __WEEWM_EVENT_H
-#define __WEEWM_EVENT_H     1
+#define __WEEWM_EVENT_H 1
 
 #include <X11/Xlib.h>
 
-extern void handle_key_event(XKeyEvent *);
-extern void handle_button_event(XButtonEvent *);
-extern void handle_configure_request(XConfigureRequestEvent *);
-extern void handle_map_request(XMapRequestEvent *e);
-extern void handle_unmap_event(XUnmapEvent *);
-extern void handle_property_change(XPropertyEvent *);
-extern void handle_enter_event(XCrossingEvent *);
+extern void handle_key_event (XKeyEvent *);
+extern void handle_button_event (XButtonEvent *);
+extern void handle_configure_request (XConfigureRequestEvent *);
+extern void handle_map_request (XMapRequestEvent *e);
+extern void handle_unmap_event (XUnmapEvent *);
+extern void handle_property_change (XPropertyEvent *);
+extern void handle_enter_event (XCrossingEvent *);
 
-extern void action_next_win(XKeyEvent *);
-extern void action_previous_win(XKeyEvent *);
-extern void action_pos_top_left(XKeyEvent *);
-extern void action_pos_top(XKeyEvent *);
-extern void action_pos_top_right(XKeyEvent *);
-extern void action_pos_left(XKeyEvent *);
-extern void action_pos_center(XKeyEvent *);
-extern void action_pos_right(XKeyEvent *);
-extern void action_pos_bottom_left(XKeyEvent *);
-extern void action_pos_bottom(XKeyEvent *);
-extern void action_pos_bottom_right(XKeyEvent *);
-extern void action_move_left(XKeyEvent *);
-extern void action_move_right(XKeyEvent *);
-extern void action_move_up(XKeyEvent *);
-extern void action_move_down(XKeyEvent *);
-extern void action_previous_desktop(XKeyEvent *);
-extern void action_next_desktop(XKeyEvent *);
-extern void action_go_to_desktop(XKeyEvent *);
-extern void action_send_previous_desktop(XKeyEvent *);
-extern void action_send_next_desktop(XKeyEvent *);
-extern void action_max_horizontal(XKeyEvent *);
-extern void action_max_vertical(XKeyEvent *);
-extern void action_maximize(XKeyEvent *);
-extern void action_fix_window(XKeyEvent *);
-extern void action_memo_position(XKeyEvent *);
-extern void action_memo_desktop(XKeyEvent *);
-extern void action_forget_position(XKeyEvent *);
-extern void action_forget_desktop(XKeyEvent *);
-extern void action_win_kill(XKeyEvent *);
-extern void action_reconfigure(XKeyEvent *);
-extern void action_quit(XKeyEvent *);
+extern void action_next_win (XKeyEvent *);
+extern void action_previous_win (XKeyEvent *);
+extern void action_pos_top_left (XKeyEvent *);
+extern void action_pos_top (XKeyEvent *);
+extern void action_pos_top_right (XKeyEvent *);
+extern void action_pos_left (XKeyEvent *);
+extern void action_pos_center (XKeyEvent *);
+extern void action_pos_right (XKeyEvent *);
+extern void action_pos_bottom_left (XKeyEvent *);
+extern void action_pos_bottom (XKeyEvent *);
+extern void action_pos_bottom_right (XKeyEvent *);
+extern void action_move_left (XKeyEvent *);
+extern void action_move_right (XKeyEvent *);
+extern void action_move_up (XKeyEvent *);
+extern void action_move_down (XKeyEvent *);
+extern void action_previous_desktop (XKeyEvent *);
+extern void action_next_desktop (XKeyEvent *);
+extern void action_go_to_desktop (XKeyEvent *);
+extern void action_send_previous_desktop (XKeyEvent *);
+extern void action_send_next_desktop (XKeyEvent *);
+extern void action_max_horizontal (XKeyEvent *);
+extern void action_max_vertical (XKeyEvent *);
+extern void action_maximize (XKeyEvent *);
+extern void action_smart_maximize (XKeyEvent *);
+extern void action_fix_window (XKeyEvent *);
+extern void action_memo_position (XKeyEvent *);
+extern void action_memo_desktop (XKeyEvent *);
+extern void action_forget_position (XKeyEvent *);
+extern void action_forget_desktop (XKeyEvent *);
+extern void action_win_kill (XKeyEvent *);
+extern void action_reconfigure (XKeyEvent *);
+extern void action_quit (XKeyEvent *);
 
 #endif /* events.h */

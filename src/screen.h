@@ -19,26 +19,17 @@
 
 
 #ifndef __WEEWM_SCREEN_H
-#define __WEEWM_SCREEN_H    1
+#define __WEEWM_SCREEN_H 1
 
 #include <X11/Xlib.h>
-#include "client.h"
 
-extern int ScreenOfWindow(Window);
-extern int ScreenOfRootWindow(Window);
-extern int get_x_min(int);
-extern int get_x_max(int);
-extern int get_y_min(int);
-extern int get_y_max(int);
-extern void draw_outline(t_client *);
-extern void get_mouse_position(int *, int *, int);
-extern void hide(t_client *);
-extern void unhide(t_client *, int);
-extern void recalculate_sweep(t_client *, int, int, int, int);
-
-extern void client_drag(t_client *);
-extern void client_move(t_client *, int);
-extern void client_resize(t_client *, int);
-extern void switch_desktop(int, int);
+extern int ScreenOfWindow (Window);
+extern int ScreenOfRootWindow (Window);
+extern int get_x_min (int);
+extern int get_x_max (int);
+extern int get_y_min (int);
+extern int get_y_max (int);
+extern void get_mouse_position (int *, int *, int);
+extern void switch_desktop (int, int);
 
 #endif /* screen.h */

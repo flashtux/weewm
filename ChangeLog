@@ -1,0 +1,26 @@
+WeeWM - Wee Window Manager for Xfree
+====================================
+
+ChangeLog - 2004-03-07
+
+Version 0.0.3 (under dev!)
+   * smart maximize
+   * code cleanup & secured (prevent buffer overflows and memory leaks)
+   * ./configure to build WeeWM from sources
+
+Version 0.0.2 (2003-07-07)
+   * memorization of windows position, width/height, desktop of windows
+   * fix/unfix windows
+   * improved dock management
+   * documentation updated
+
+Version 0.0.1 (2003-03-18)
+   * smart windows placement
+   * doc management
+   * virtual desktops
+   * light windows decoration
+   * solid windows drags
+   * config file for bindings
+   * all can be done with keyboard
+   * one key for many commands
+   * small binary size
