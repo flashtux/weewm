@@ -623,7 +623,7 @@ Mod4            c       run1    xclock  1   0       xclock@*
 
 Dans cet exemple, on a :@*
 @kbd{Mod1|Control              Left       prev_desktop}@*
-donc utliser les modificateurs Mod1 +
+donc utiliser les modificateurs Mod1 +
 Control (Mod1|Control) + la touche fl@'eche gauche (Left) effectuera
 l'action d'aller sur le bureau pr@'ec@'edent (prev_desktop).
 
@@ -633,7 +633,7 @@ va lancer (param@`etre ``run'') un terminal aterm @`a une position donn@'ee.
 Si vous cherchez le nom d'une touche, vous pouvez utilisez @kbd{xev}
 pour le trouver. Par exemple, vous d@'esirez conna@^itre le nom de la
 touche ``fl@'eche droite''. Lancer donc xev, placez vous dans le fen@^etre
-qui apparait et presser la touche ``fl@'eche droite''. Dans votre
+qui apparaît et presser la touche ``fl@'eche droite''. Dans votre
 terminal appara@^itra quelque chose ressemblant @`a@tie{}:
 
 @kbd{
@@ -765,8 +765,8 @@ Les informations que vous devez absolument nous transmettre lorsque
 vous nous faîtes un rapport de bug sont principalement :
 
 - Votre OS / distribution et sa version.@*
-- La version de WeeWM, si il s'agit d'une CVS (ou d'un tarball de developpement) alors de quel jour ?@*
-- Quand cela se produit t'il ? Avez vous fait quelque chose ? Pouvez vous le reproduire ?@*
+- La version de WeeWM, si il s'agit d'une CVS (ou d'un tarball de développement) alors de quel jour ?@*
+- Quand cela se produit t il ? Avez vous fait quelque chose ? Pouvez vous le reproduire ?@*
 - Vos r@'eglages. Ils peuvent @^etre trouv@'es dans ~/.weewm/@*
 
 @node Et les core-dumps, Reporter un bug, Informations @`a sp@'ecifier, D@'ebuggage
@@ -802,7 +802,7 @@ D@'emarrez maintenant X et commençons le d@'ebuggage. Reproduisez l'action
 qui a fait crasher WeeWM la derni@`ere fois afin d'obtenir le core dump.
 Puis d@'emarrons le d@'ebuggage :
 
-@kbd{$ gdb fluxbox core}
+@kbd{$ gdb weewm core}
 
 Vous taperez ensuite cette commande dans gdb :
 
