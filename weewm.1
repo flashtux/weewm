@@ -1,0 +1,302 @@
+.TH WEEWM 1 "June 2003" "FlashCode"
+
+.SH NAME
+weewm \- fast and ultra light Window Manager for XFree
+
+.SH SYNOPSIS
+.B weewm
+.RI [ options ]
+.br
+
+.SH DESCRIPTION
+\fBW\fPee \fBE\fPnhanced \fBE\fPnvironment
+\- \fBW\fPindow \fBM\fPanager
+.br
+Window Manager for XFree,
+fast, ultra-light, with total keyboard control.
+
+.SH OPTIONS
+.TP
+.B \-c, \-\-config
+.br
+config file to load
+.br
+(default: ~/.weewm/config.rc)
+.TP
+.B \-d, \-\-display
+.br
+choose X display
+.TP
+.B \-f, \-\-font
+.br
+font name
+.TP
+.B \-h, \-\-help
+.br
+display summary of options
+.TP
+.B \-k, \-\-keys
+.br
+key bindings file to load
+.br
+(default: ~/.weewm/keys.rc)
+.TP
+.B \-l, \-\-licence
+.br
+display program licence
+.TP
+.B \-m, \-\-list\-commands
+.br
+display WeeWM commands (for keys.rc)
+.TP
+.B \-o, \-\-list\-options
+.br
+display WeeWM options (for config.rc)
+.TP
+.B \-v, \-\-version
+.br
+display WeeWM version
+
+.SH FILES
+.TP
+.B $HOME/.weewm/config.rc
+configuration file
+.TP
+.B $HOME/.weewm/keys.rc
+key bindings file
+
+.SH WEEWM OPTIONS (config.rc)
+.TP
+.B border
+.br
+width of border (in pixels)
+.br
+min: 1, max: 3, default: 1
+.TP
+.B space
+.br
+space between window and border (in pixels)
+.br
+min: 0, max: 5, default: 1
+.TP
+.B desktops
+.br
+number of desktops
+.br
+min: 1, max: 256, default: 5
+.TP
+.B minwidth
+.br
+minimum window width
+.br
+min: 1, max: 4096, default: 15
+.TP
+.B minheight
+.br
+minimum window height
+.br
+min: 1, max: 4096, default: 15
+.TP
+.B move_offset
+.br
+offset for moving windows (in pixels)
+.br
+min: 1, max: 256, default: 16
+.TP
+.B color.border.active
+.br
+color of active border
+.br
+default: 'green'
+.TP
+.B color.border.inactive
+.br
+color of inactive border
+.br
+default: 'black'
+.TP
+.B color.sticky
+.br
+color of border for sticky windows
+.br
+default: 'blue'
+.TP
+.B info.width
+.br
+width of info window - NOT DEVELOPED!
+.br
+min: 10, max: 4096, default: 100
+.TP
+.B info.height
+.br
+height of info window - NOT DEVELOPED!
+.br
+min: 10, max: 4096, default: 50
+.TP
+.B dock.use
+.br
+dock activation (1=use, 0=no dock)
+.br
+min: 0, max: 1, default: 1
+.TP
+.B dock.size
+.br
+dock size (in pixels)
+.br
+min: 8, max: 512, default: 64
+.TP
+.B dock.position
+.br
+dock position (1=top, 2=left, 3=right, 4=bottom)
+.br
+min: 1, max: 4, default: 3
+.TP
+.B dock.align
+.br
+dock alignment (0=top/left, 1=centered, 2=bottom/right)
+.br
+min: 0, max: 2, default: 0
+
+.SH WEEWM COMMANDS (keys.rc)
+.TP
+.B next_win
+.br
+focus next window
+.TP
+.B prev_win
+.br
+focus previous window
+.TP
+.B pos_top_left
+.br
+move window to the top left corner
+.TP
+.B pos_top
+.br
+move window to the top of the screen
+.TP
+.B pos_top_right
+.br
+move window to the top right corner
+.TP
+.B pos_left
+.br
+move window to the left of the screen
+.TP
+.B pos_center
+.br
+center window on screen
+.TP
+.B pos_right
+.br
+move window to the right of the screen
+.TP
+.B pos_bottom_left
+.br move window to the bottom left corner
+.TP
+.B pos_bottom
+.br
+move window to the bottom of the screen
+.TP
+.B pos_bottom_right
+.br
+move window to the bottom right corner
+.TP
+.B move_win_left
+.br
+move window horizontally (-X pixels)
+.TP
+.B move_win_right
+.br
+move window horizontally (+X pixels)
+.TP
+.B move_win_up
+.br
+move window vertically (-X pixels)
+.TP
+.B move_win_down
+.br
+move window vertically (+X pixels)
+.TP
+.B prev_desktop
+.br
+go to previous desktop
+.TP
+.B next_desktop
+.br
+go to next desktop
+.TP
+.B desktop[1-256]
+.br
+go to specified desktop
+.TP
+.B send_prev_desktop
+.br
+send window to previous desktop
+.TP
+.B send_next_desktop
+.br
+send window to next desktop
+.TP
+.B win_max_horizontal
+.br
+maximize windows horizontally
+.TP
+.B win_max_vertical
+.br
+maximize windows vertically
+.TP
+.B win_max
+.br
+maximize windows
+.TP
+.B win_fix
+.br
+fix/unfix window
+.TP
+.B win_memo_pos
+.br
+memorize position and size of window
+.TP
+.B win_memo_desktop
+.br
+memorize desktop of window
+.TP
+.B win_forget_pos
+.br
+forget memorized position for window
+.TP
+.B win_forget_desktop
+.br
+forget memorized desktop for window
+.TP
+.B win_kill
+.br
+kill current windows
+.TP
+.B reconfigure
+.br
+reload config - NOT DEVELOPED!
+.TP
+.B quit
+.br
+quit WeeWM
+
+.SH SEE ALSO
+.BR X (7x),
+.BR xinit (1),
+.BR startx (1).
+
+.SH AUTHORS
+WeeWM is written by:
+.br
+ - FlashCode <flashcode@flashtux.org>
+.br
+ - Xahlexx <xahlexx@tuxisland.org>
+.br
+ - Bounga <bounga@altern.org>
+.br
+WeeWM on the web:
+.UR
+http://www.weewm.org
+.UE

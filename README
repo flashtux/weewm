@@ -1,0 +1,143 @@
+WeeWM - Wee Window Manager for XFree
+====================================
+
+
+WeeWM is a fast & ultra light Window Manager for XFree.
+
+
+Features :
+--------
+    * Light windows decorations
+    * Dock management
+    * Smart windows placement
+    * Virtual desktops
+    * All be done with keyboard
+    * One key for many commands
+    * Solid window drags
+    * Config file for bindings
+    * Small binary size
+    * Hot configuration reading
+
+
+
+Syntax of config.rc file :
+------------------------
+
+<option>  <value>
+
+Type weewm --list-options for list of available options
+with description.
+
+
+
+Syntax of keys.rc file :
+----------------------
+
+<modifier> <key> <weewm_cmd> [ <appli_name> <desktop> <position> <command> [<parameters>] ]
+
+Available commands for key bindings :
+
+Type weewm --list-commands for list of available commands with description.
+
+For commands run & run1 :
+    <appli_name> <desktop> <placement> <command> [<parameters>]
+    
+    appli_name : useful for run1 command
+                 (this is the name of application, for example: "xterm")
+    desktop    : if 0, win is opened on current desktop, otherwise on desktop specified
+    placement  : if 0, no fixed position, otherwise position like keypad number pos
+                 (with 5 = center on screen)
+    command    : command to run
+    parameters : parameters for command (optional)
+
+
+
+Copyright
+---------
+
+WeeWM is distributed under GPL licence (see COPYING file).
+WeeWM (c) Copyright 2003
+  by: FlashCode <flashcode@flashtux.org>
+      Xahlexx   <xahlexx@tuxfamily.org>
+      Bounga    <bounga@altern.org>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+Portions of the code were based on cwwm, which contains this license:
+
+
+* CWWM LICENSE :
+
+cwwm-1.2.0
+Copyright (C) 1999-2002 ChezWam <dev@cwwm.chezwam.org>
+
+Developpers:
+
+Sebastien GROSS: <seb@chezwam.org>
+Dimitri FONTAINE: <dim@tapoueh.org>
+Julien DUCROS: <jul@chezwam.org>
+
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS", WITHOUT ANY EXPRESS
+OR IMPLIED WARRANTIES OF ANY KIND. IN NO EVENT SHALL THE AUTHOR BE
+HELD LIABLE FOR ANY DAMAGES CONNECTED WITH THE USE OF THIS PROGRAM.
+
+You are granted permission to copy, publish, distribute, and/or sell
+copies of this program and any modified versions or derived works,
+provided that this copyright and notice are not removed or altered.
+
+Portions of the code were based on evilwm, which contains this license:
+
+
+* EVILWM LICENCE :
+
+evilwm-0.3
+Copyright (C) 1999-2002  Ciaran Anscomb <evilwm@6809.org.uk>
+
+This is free software.  You can do what you want to it, but if it
+breaks something, you get to pay for the counselling.  The code was
+originally based on aewm, so this is distributed under the same terms,
+which follow.
+
+
+* AEWM LICENCE :
+
+Copyright (c) 1998-2000 Decklin Foster.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS", WITHOUT ANY EXPRESS
+OR IMPLIED WARRANTIES OF ANY KIND. IN NO EVENT SHALL THE AUTHOR BE
+HELD LIABLE FOR ANY DAMAGES CONNECTED WITH THE USE OF THIS PROGRAM.
+
+You are granted permission to copy, publish, distribute, and/or sell
+copies of this program and any modified versions or derived works,
+provided that this copyright and notice are not removed or altered.
+
+Portions of the code were based on 9wm, which contains this license:
+
+> 9wm is free software, and is Copyright (c) 1994 by David Hogan.
+> Permission is granted to all sentient beings to use this software,
+> to make copies of it, and to distribute those copies, provided
+> that:
+>
+>     (1) the copyright and licence notices are left intact
+>     (2) the recipients are aware that it is free software
+>     (3) any unapproved changes in functionality are either
+>           (i) only distributed as patches
+>       or (ii) distributed as a new program which is not called 9wm
+>               and whose documentation gives credit where it is due
+>     (4) the author is not held responsible for any defects
+>         or shortcomings in the software, or damages caused by it.
+>
+> There is no warranty for this software.  Have a nice day.

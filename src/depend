@@ -1,0 +1,7 @@
+client.o: client.c weewm.h client.h screen.h config.h memorize.h
+config.o: config.c weewm.h client.h config.h events.h
+events.o: events.c weewm.h client.h events.h screen.h config.h memorize.h
+info.o: info.c weewm.h client.h info.h config.h screen.h
+memorize.o: memorize.c weewm.h client.h memorize.h config.h
+screen.o: screen.c weewm.h client.h screen.h info.h config.h
+weewm.o: weewm.c weewm.h client.h config.h events.h info.h memorize.h

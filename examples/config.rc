@@ -1,0 +1,50 @@
+# WeeWM configuration
+# See README for syntax.
+
+# ===== WeeWM configuration =====
+
+# width of border (in pixels)
+border               1
+
+# space between window and border (in pixels)
+space                1
+
+# number of desktops
+desktops             5
+
+# minimum window width
+minwidth             15
+
+# minimum window height
+minheight            15
+
+# offset for moving windows (in pixels)
+move_offset          16
+
+# color of border
+color.border.active  green
+
+# color of inactive border
+color.border.inactive black
+
+# color of border for sticky windows
+color.sticky         blue
+
+# width of info window - NOT DEVELOPED!
+info.width           100
+
+# height of info window - NOT DEVELOPED!
+info.height          50
+
+# dock activation (1=use, 0=no dock)
+dock.use             1
+
+# dock size (in pixels)
+dock.size            64
+
+# dock position (1=top, 2=left, 3=right, 4=bottom)
+dock.position        2
+
+# dock alignment (0=top/left, 1=centered, 2=bottom/right)
+dock.align           1
+

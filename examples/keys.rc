@@ -1,0 +1,47 @@
+# WeeWM configuration : key bindings (EXAMPLE FILE)
+# See README for syntax.
+
+# ===== WeeWM key bindings =====
+
+mouse_mask                Mod4      
+Mod1|Control              Left       prev_desktop
+Mod1|Control              Right      next_desktop
+Mod4                      Left       send_prev_desktop
+Mod4                      Right      send_next_desktop
+Mod4                      F1         desktop_1
+Mod4                      F2         desktop_2
+Mod4                      F3         desktop_3
+Mod4                      F4         desktop_4
+Mod4                      F5         desktop_5
+Mod4                      F6         desktop_6
+Mod4                      F7         desktop_7
+Mod4                      F8         desktop_8
+Mod4                      F9         desktop_9
+Mod4                      F10        desktop_10
+Mod4                      F11        desktop_11
+Mod4                      F12        desktop_12
+Mod4                      Home       pos_top_left
+Mod4                      End        pos_bottom_left
+Mod4                      Prior      pos_top_right
+Mod4                      Next       pos_bottom_right
+Mod4|Shift                Up         pos_top
+Mod4|Shift                Down       pos_bottom
+Mod4|Shift                Left       pos_left
+Mod4|Shift                Right      pos_right
+Mod4                      i          move_win_up
+Mod4                      k          move_win_down
+Mod4                      j          move_win_left
+Mod4                      l          move_win_right
+Mod1                      Tab        next_win
+Mod1|Shift                Tab        prev_win
+Mod4                      space      win_max
+Mod4|Shift                h          win_max_horizontal
+Mod4|Shift                v          win_max_vertical
+Mod4|Shift                p          win_memo_pos
+Mod4|Shift                d          win_memo_desktop
+Mod4                      Escape     win_kill
+Mod1|Control              Escape     quit
+
+# applications
+Mod4            Return  run     aterm   0   7913    xterm
+Mod4            c       run1    xclock  1   0       xclock

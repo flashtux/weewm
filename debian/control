@@ -1,0 +1,14 @@
+Source: weewm
+Section: x11
+Priority: optional
+Maintainer: FlashCode <flashcode@flashtux.org>
+Build-Depends: debhelper (>> 4.0.0)
+Standards-Version: 3.5.8
+
+Package: weewm
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: Fast and ultra light Window Manager for XFree
+ WeeWM (Wee Enhanced Environment) is a fast and light window manager
+ for XFree86. Everything can be done with a keyboard. It is customizable,
+ and has dock management, smart window placement, virtual desktops, and more.
