@@ -83,6 +83,7 @@ Bounga: @email{bounga@@altern.org}
 * Introduction:: Qu'est-ce que WeeWM ?
 * Installation:: Installation de WeeWM
 * Configuration:: Configuration de WeeWM
+* D@'ebuggage:: Comment aider @`a trouver et corriger les bugs ?
 * Auteurs / Support:: Contacter les auteurs et obtenir de l'aide
 @end menu
 
@@ -370,7 +371,7 @@ Vous pouvez maintenant tenter de lancer WeeWM en tapant@tie{}:@*
 
 @c ****************************** Configuration *******************************
 
-@node Configuration, Auteurs / Support, Installation, Top
+@node Configuration, D@'ebuggage, Installation, Top
 @chapter Configuration
 
 @menu
@@ -733,18 +734,116 @@ idesk &@*
 exec weewm@*
 }
 
+@c ************************* Débuggage ****************************
+
+@node D@'ebuggage, Auteurs / Support, Configuration, Top
+@chapter D@'ebuggage
+
+@menu
+* Informations g@'en@'erales::
+* Informations @`a sp@'ecifier::
+* Et les core-dumps::
+* Reporter un bug:: 
+@end menu
+
+@node Informations g@'en@'erales, Informations @`a sp@'ecifier, ,D@'ebuggage
+@section Informations g@'en@'erales
+
+Le d@'ebuggage peut paraître une tâche r@'eserv@'ee aux d@'eveloppeur au
+premier abord mais vous pouvez facilement en apprendre les bases.
+Deux adresses utiles pour apprendre @`a r@'ediger un bon rapport de bug
+sont les suivantes :
+@uref{http://www.mozilla.org/quality/bug-writing-guidelines.html} et
+@uref{http://www.chiark.greenend.org.uk/~sgtatham/bugs.html}. Ces
+documents n'existent malheureusement pas en français @`a notre
+connaissance et ce sont les seuls vraiment bons que nous connaissons.
+
+@node Informations @`a sp@'ecifier, Et les core-dumps,Informations g@'en@'erales, D@'ebuggage
+@section Informations @`a sp@'ecifier
+
+Les informations que vous devez absolument nous transmettre lorsque
+vous nous faîtes un rapport de bug sont principalement :
+
+- Votre OS / distribution et sa version.@*
+- La version de WeeWM, si il s'agit d'une CVS (ou d'un tarball de developpement) alors de quel jour ?@*
+- Quand cela se produit t'il ? Avez vous fait quelque chose ? Pouvez vous le reproduire ?@*
+- Vos r@'eglages. Ils peuvent @^etre trouv@'es dans ~/.weewm/@*
+
+@node Et les core-dumps, Reporter un bug, Informations @`a sp@'ecifier, D@'ebuggage
+@section Et les core-dumps ?
+
+Si lors de l'utilisation de WeeWM survient un crash et que vous
+obtenez un core-dump, nous vous conseillons de venir sur le canal
+#weewm sur le serveur irc.freenode.net et de dire @`a l'un des ops
+pr@'esent que vous avez un coredump. Il vous demandera tr@`es certainement
+un certain nombre d'informations.
+
+Pour pouvoir obtenir des informations int@'eressantes @`a partir des
+core-dumps, vous devrez poss@'eder une version de WeeWM compil@'ee avec
+les options ad@'equates ce qui n'est pas le cas des versions de
+``release'' propos@'ees sur le site. Il vous faudra donc compiler vous
+m@^eme WeeWM. 
+
+@subsection Recompilez WeeWM
+
+Pour que WeeWM soit compil@'e avec les possibilit@'es de d@'ebuggage, il
+vous faudra r@'ecup@'erer les sources de WeeWM. Lorsque vous voudrez
+lancer le ``@kbd{make}'', pensez @`a ajoutez les options suivantes :
+
+@kbd{$ OPTIONS=-Wall -W -pedantic -pipe -O2 -g3 make}
+
+Une fois la compilation termin@'ee, dans votre shell tapez :
+
+@kbd{$ ulimit -c unlimited}
+
+ce qui vous permettra d'obtenir des core-dumps de taille non limit@'ee.
+
+D@'emarrez maintenant X et commençons le d@'ebuggage. Reproduisez l'action
+qui a fait crasher WeeWM la derni@`ere fois afin d'obtenir le core dump.
+Puis d@'emarrons le d@'ebuggage :
+
+@kbd{$ gdb fluxbox core}
+
+Vous taperez ensuite cette commande dans gdb :
+
+@kbd{(gdb) where}
+
+De nombreux messages devraient s'afficher. Les d@'eveloppeurs de WeeWM
+seront int@'eress@'es par tous les messages commençant par un #.
+
+Une fois tout cela r@'ecup@'er@'e vous pouvez envoyer un e-mail d@'ecrivant la
+manipulation qui plante WeeWM, les messages r@'ecup@'er@'es pr@'ec@'edemment
+ainsi que vos fichiers de configuration disponibles dans ~/.weewm/.
+
+Ne supprimez pas le fichier core et le r@'epertoire des sources
+imm@'ediatement apr@`es. Les d@'eveloppeurs pourraient vous demander
+d'autres d@'etails et vous auriez donc encore besoin de ces
+fichiers. N'envoyez aucun fichiers aux d@'eveloppeurs sans avoir d'abord
+expos@'e votre probl@`eme soit sur le canal IRC, soit par messages
+instantan@'ees (AIM, ICQ, Jabber) @`a l'un des d@'eveloppeurs. Le probl@`eme
+pourrait @^etre sp@'ecifique @`a votre syst@`eme, et il serait probablement
+inutile aux d@'eveloppeurs d'avoir le fichier core qui est en g@'en@'eral assez volumineux.
+
+@node Reporter un bug, , Et les core-dumps, D@'ebuggage
+@section Reporter un bug
+
+Avant de reporter un bug, v@'erifiez si le probl@`eme est d@'ej@`a connu
+(en regardant le fichier BUGS dans le dernier paquet source ou le CVS).
+
+Si vous avez d@'ecouvert un nouveau bug, merci de le soumettre sur cette page@tie{}:@*
+@uref{http://savannah.nongnu.org/bugs/?func=addbug&group=weewm}
+
 @c **************************** Auteurs / Support *****************************
 
-@node Auteurs / Support, , Configuration, Top
+@node Auteurs / Support, , D@'ebuggage, Top
 @chapter Auteurs / Support
 
 @menu
 * Auteurs::
-* Reporter un bug::
 * Obtenir de l aide::
 @end menu
 
-@node Auteurs, Reporter un bug, Auteurs / Support, Auteurs / Support
+@node Auteurs, Obtenir de l aide, Auteurs / Support, Auteurs / Support
 @section Auteurs
 
 WeeWM est @'ecrit par :@*
@@ -800,16 +899,7 @@ Bounga:
 
 @end itemize
 
-@node Reporter un bug, Obtenir de l aide, Auteurs, Auteurs / Support
-@section Reporter un bug
-
-Avant de reporter un bug, v@'erifiez si le probl@`eme est d@'ej@`a connu
-(en regardant le fichier BUGS dans le dernier paquet source ou le CVS).
-
-Si vous avez d@'ecouvert un nouveau bug, merci de le soumettre sur cette page@tie{}:@*
-@uref{http://savannah.nongnu.org/bugs/?func=addbug&group=weewm}
-
-@node Obtenir de l aide, , Reporter un bug, Auteurs / Support
+@node Obtenir de l aide, , Auteurs, Auteurs / Support
 @section Obtenir de l'aide
 
 Aide via IRC :@*
